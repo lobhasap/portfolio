@@ -1,0 +1,34 @@
+{
+    "name": "my projects",
+    "children": [
+        {
+            "name": "SEM I",
+            "children": [
+                { "name": "The Panic Button Portal" },
+                { "name": "Credit Chateau" }
+            ]
+        },
+        {
+            "name": "SEM II",
+            "children": [
+                { "name": "TMKOC Advice App" },
+                { "name": "Water Quality Assesment App" }
+            ]
+        },
+        {
+            "name": "SEM III",
+            "children": [
+                { "name": "CLI Social Media" },
+                { "name": "Billionare Screening" }
+            ]
+        },
+        {
+            "name": "SEM IV",
+            "children": [
+                { "name": "DDOS Prevention & Tester" },
+                { "name": "Secure User Tester" }
+            ]
+        }
+        
+    ]
+}
