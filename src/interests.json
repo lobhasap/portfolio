@@ -1,34 +1,95 @@
 {
-    "name": "my projects",
+    "name": "my projects & certificates",
     "children": [
-        {
-            "name": "SEM I",
+      {
+        "name": "certificates",
+        "children": [
+         {
+            "name": "Algorithmic Trading & Finance",
             "children": [
-                { "name": "The Panic Button Portal" },
-                { "name": "Credit Chateau" }
+              { "name": "Algorithmic Trading and Stocks Essential Training" },
+              { "name": "Practical Python for Algorithmic Trading" },
+              { "name": "Financial Modeling Foundations" },
+              { "name": "Algorithmic Trading and Finance Models with Python, R, and Stata Essential Training (2019)" }
             ]
-        },
-        {
-            "name": "SEM II",
+          },
+          {
+            "name": "Machine Learning & Data Science",
             "children": [
-                { "name": "TMKOC Advice App" },
-                { "name": "Water Quality Assesment App" }
+              { "name": "Machine Learning with Python: k-Means Clustering" },
+              { "name": "Applied Machine Learning: Algorithms" },
+              { "name": "Machine Learning and AI Foundations: Clustering and Association" },
+              { "name": "Predictive Analytics Essential Training: Data Mining" },
+              { "name": "Workshop/Fundamentals of deep learning" }
             ]
-        },
-        {
-            "name": "SEM III",
+          },
+          {
+            "name": "Data Engineering & Warehousing",
             "children": [
-                { "name": "CLI Social Media" },
-                { "name": "Billionare Screening" }
+              { "name": "Implementing a Data Warehouse with SQL Server 2022" },
+              { "name": "Introduction to Data Warehouses" },
+              { "name": "Transition from Data Science to Data Engineering" }
             ]
-        },
-        {
-            "name": "SEM IV",
+          },
+          {
+            "name": "Cybersecurity & Network Security",
             "children": [
-                { "name": "DDOS Prevention & Tester" },
-                { "name": "Secure User Tester" }
+              { "name": "Metasploit for Beginners: Ethical Penetration Testing" },
+              { "name": "Encryption and Decryption using C++" },
+              { "name": "Wireshark for Beginners: TCP IP Protocol Fundamentals" },
+              { "name": "Web Application Security Testing with OWASP ZAP" },
+              { "name": "How to Secure your Network Device using Cisco Packet Tracer" },
+              { "name": "Wireshark for Beginners: Capture Packets" },
+              { "name": "Vulnerability Scanning with Nmap: Network Scanning" },
+              { "name": "IT Fundamentals for Cybersecurity" },
+              { "name": "Computer Networks and Network Security" },
+              { "name": "Fundamentals of Computer Network Security" },
+              { "name": "Secure Networked System with Firewall and IDS" }
             ]
-        }
-        
+          },
+          {
+            "name": "Business Tools & Productivity",
+            "children": [
+              { "name": "Business Analytics with Excel" },
+              { "name": "Time management mastery" }
+            ]
+          },
+          {
+            "name": "Programming Tools",
+            "children": [
+              { "name": "MATLAB Onramp" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "SEM I",
+        "children": [
+          { "name": "The Panic Button Portal" },
+          { "name": "Credit Chateau" }
+        ]
+      },
+      {
+        "name": "SEM II",
+        "children": [
+          { "name": "TMKOC Advice App" },
+          { "name": "Water Quality Assesment App" }
+        ]
+      },
+      {
+        "name": "SEM III",
+        "children": [
+          { "name": "CLI Social Media" },
+          { "name": "Billionare Screening" }
+        ]
+      },
+      {
+        "name": "SEM IV",
+        "children": [
+          { "name": "DDOS Prevention & Tester" },
+          { "name": "Secure User Tester" }
+        ]
+      }
     ]
-}
+  }
+  
