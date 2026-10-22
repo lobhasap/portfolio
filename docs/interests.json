@@ -1,95 +1,536 @@
 {
-    "name": "my projects & certificates",
-    "children": [
-      {
-        "name": "certificates",
-        "children": [
-         {
-            "name": "Algorithmic Trading & Finance",
-            "children": [
-              { "name": "Algorithmic Trading and Stocks Essential Training" },
-              { "name": "Practical Python for Algorithmic Trading" },
-              { "name": "Financial Modeling Foundations" },
-              { "name": "Algorithmic Trading and Finance Models with Python, R, and Stata Essential Training (2019)" }
-            ]
-          },
-          {
-            "name": "Machine Learning & Data Science",
-            "children": [
-              { "name": "Machine Learning with Python: k-Means Clustering" },
-              { "name": "Applied Machine Learning: Algorithms" },
-              { "name": "Machine Learning and AI Foundations: Clustering and Association" },
-              { "name": "Predictive Analytics Essential Training: Data Mining" },
-              { "name": "Workshop/Fundamentals of deep learning" }
-            ]
-          },
-          {
-            "name": "Data Engineering & Warehousing",
-            "children": [
-              { "name": "Implementing a Data Warehouse with SQL Server 2022" },
-              { "name": "Introduction to Data Warehouses" },
-              { "name": "Transition from Data Science to Data Engineering" }
-            ]
-          },
-          {
-            "name": "Cybersecurity & Network Security",
-            "children": [
-              { "name": "Metasploit for Beginners: Ethical Penetration Testing" },
-              { "name": "Encryption and Decryption using C++" },
-              { "name": "Wireshark for Beginners: TCP IP Protocol Fundamentals" },
-              { "name": "Web Application Security Testing with OWASP ZAP" },
-              { "name": "How to Secure your Network Device using Cisco Packet Tracer" },
-              { "name": "Wireshark for Beginners: Capture Packets" },
-              { "name": "Vulnerability Scanning with Nmap: Network Scanning" },
-              { "name": "IT Fundamentals for Cybersecurity" },
-              { "name": "Computer Networks and Network Security" },
-              { "name": "Fundamentals of Computer Network Security" },
-              { "name": "Secure Networked System with Firewall and IDS" }
-            ]
-          },
-          {
-            "name": "Business Tools & Productivity",
-            "children": [
-              { "name": "Business Analytics with Excel" },
-              { "name": "Time management mastery" }
-            ]
-          },
-          {
-            "name": "Programming Tools",
-            "children": [
-              { "name": "MATLAB Onramp" }
-            ]
-          }
-        ]
-      },
-      {
-        "name": "SEM I",
-        "children": [
-          { "name": "The Panic Button Portal" },
-          { "name": "Credit Chateau" }
-        ]
-      },
-      {
-        "name": "SEM II",
-        "children": [
-          { "name": "TMKOC Advice App" },
-          { "name": "Water Quality Assesment App" }
-        ]
-      },
-      {
-        "name": "SEM III",
-        "children": [
-          { "name": "CLI Social Media" },
-          { "name": "Billionare Screening" }
-        ]
-      },
-      {
-        "name": "SEM IV",
-        "children": [
-          { "name": "DDOS Prevention & Tester" },
-          { "name": "Secure User Tester" }
-        ]
-      }
-    ]
-  }
-  
+  "name": "Lobhas Paithankar",
+  "children": [
+    {
+      "name": "Achievements",
+      "children": [
+        {
+          "name": "1st Place - Zerodha Varsity Finance Quiz (Mar 2025)"
+        },
+        {
+          "name": "1st Place - Threat Intelligence Quiz (Apr 2025)"
+        },
+        {
+          "name": "Published Research Paper - ICSIAIML 2025"
+        },
+        {
+          "name": "4th Place - Visionary Techfest '24, Vishwakarma University (Feb 2024)"
+        },
+        {
+          "name": "Participant - MiniMASA, IISER Pune (Jan 2024)"
+        },
+        {
+          "name": "Participant - Vishwakarma University Internal Hackathon 2023"
+        }
+      ]
+    },
+    {
+      "name": "Experience",
+      "children": [
+        {
+          "name": "Bizpal Software Services - Intern",
+          "children": [
+            {
+              "name": "Feb 2026 - Jun 2026"
+            },
+            {
+              "name": "Multi-Tenant Payroll Management Platform"
+            },
+            {
+              "name": "FastAPI, SQLAlchemy, PostgreSQL/SQLite, JWT"
+            },
+            {
+              "name": "REST APIs for Employees, Payroll, Attendance & RBAC"
+            },
+            {
+              "name": "Indian Statutory Compliance: PF, ESIC, PT, TDS, Form 16"
+            }
+          ]
+        },
+        {
+          "name": "Nomura Investment Bank - Intern",
+          "children": [
+            {
+              "name": "Jul 2025 - Jan 2026"
+            },
+            {
+              "name": "Conjur Secrets Management & Secure Credential Injection"
+            },
+            {
+              "name": "HTTP-to-HTTPS Migration & Certificate Management"
+            },
+            {
+              "name": "Application Security Reviews & Infrastructure Hardening"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "children": [
+        {
+          "name": "Cipherverse",
+          "url": "https://github.com/lobhasap/cipherverse",
+          "children": [
+            {
+              "name": "AES-256 File Encryption"
+            },
+            {
+              "name": "PyQt Desktop Application"
+            },
+            {
+              "name": "SQLite Key Management"
+            },
+            {
+              "name": "Transactional Data Integrity"
+            }
+          ]
+        },
+        {
+          "name": "DDoS Mitigation Module",
+          "url": "https://github.com/lobhasap/DDOS-prevention",
+          "children": [
+            {
+              "name": "Token Bucket Rate Limiter"
+            },
+            {
+              "name": "Traffic Analysis & Flood Detection"
+            },
+            {
+              "name": "Monitoring & Logging"
+            }
+          ]
+        },
+        {
+          "name": "Session Replay Attack & Countermeasures",
+          "url": "https://github.com/lobhasap/Session-Replay",
+          "children": [
+            {
+              "name": "Session Replay Attack Demonstration"
+            },
+            {
+              "name": "HTTPS & Session Token Expiry"
+            },
+            {
+              "name": "IP / User-Agent Verification & Anti-CSRF"
+            },
+            {
+              "name": "Live Demo",
+              "url": "https://session-replay.vercel.app"
+            }
+          ]
+        },
+        {
+          "name": "Secure User Tester (DDoS Pizza)",
+          "url": "https://github.com/lobhasap/Secure-user-tester",
+          "children": [
+            {
+              "name": "Security Testing Playground"
+            },
+            {
+              "name": "DDoS-Resilient Pizza Ordering App"
+            },
+            {
+              "name": "Live Demo",
+              "url": "https://pizzas-tau.vercel.app"
+            }
+          ]
+        },
+        {
+          "name": "CLI Social Media",
+          "url": "https://github.com/lobhasap/CLI-Socialmedia",
+          "children": [
+            {
+              "name": "C++ Command-Line Social Network"
+            },
+            {
+              "name": "Data Structures & File Handling"
+            }
+          ]
+        },
+        {
+          "name": "Billionaire Screening Dashboard",
+          "url": "https://github.com/lobhasap/Billionare-Screening",
+          "children": [
+            {
+              "name": "R Shiny Dashboard"
+            },
+            {
+              "name": "Financial Data Analysis"
+            }
+          ]
+        },
+        {
+          "name": "SpellCheck",
+          "url": "https://github.com/lobhasap/spellcheck",
+          "children": [
+            {
+              "name": "Browser-Based Spelling Game"
+            },
+            {
+              "name": "Multiple Game Modes"
+            },
+            {
+              "name": "Results & Progress Tracking"
+            }
+          ]
+        },
+        {
+          "name": "Portfolio Website",
+          "url": "https://github.com/lobhasap/portfolio",
+          "children": [
+            {
+              "name": "Angular Single-Page Application"
+            },
+            {
+              "name": "Interactive D3.js Tree"
+            },
+            {
+              "name": "99 Lighthouse Score"
+            }
+          ]
+        },
+        {
+          "name": "Smart Music Player with Gesture & Emotion Detection",
+          "children": [
+            {
+              "name": "Python, OpenCV, MediaPipe, FER, Spotify API"
+            },
+            {
+              "name": "Facial Emotion Recognition"
+            },
+            {
+              "name": "Gesture-Based Controls"
+            },
+            {
+              "name": "Multi-Threaded Video & Audio Pipeline"
+            },
+            {
+              "name": "Published Research Paper"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Education",
+      "children": [
+        {
+          "name": "Vishwakarma University, Pune - B.Tech Computer Engineering",
+          "children": [
+            {
+              "name": "2022 - 2026"
+            },
+            {
+              "name": "CGPA: 8.41/10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Research",
+      "children": [
+        {
+          "name": "Emotion-Aware Music Recommendation using Gesture Recognition and Computer Vision",
+          "children": [
+            {
+              "name": "ICSIAIML 2025"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Technical Skills",
+      "children": [
+        {
+          "name": "Programming Languages",
+          "children": [
+            {
+              "name": "Python, C, C++, Java, JavaScript, SQL, R, Shell Scripting"
+            }
+          ]
+        },
+        {
+          "name": "Frameworks & Technologies",
+          "children": [
+            {
+              "name": "FastAPI, React, Angular, Node.js, SQLAlchemy, JWT"
+            }
+          ]
+        },
+        {
+          "name": "Databases",
+          "children": [
+            {
+              "name": "MySQL, PostgreSQL, SQLite, MongoDB"
+            }
+          ]
+        },
+        {
+          "name": "Security & Networking",
+          "children": [
+            {
+              "name": "Conjur, Wireshark, TCPDump, Metasploit, Nmap, OWASP ZAP"
+            },
+            {
+              "name": "Cisco Packet Tracer, TCP/IP"
+            }
+          ]
+        },
+        {
+          "name": "Developer Tools",
+          "children": [
+            {
+              "name": "Git, Jenkins"
+            }
+          ]
+        },
+        {
+          "name": "Operating Systems",
+          "children": [
+            {
+              "name": "Linux - System Administration, Process Management, File Systems"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Professional Certifications",
+      "children": [
+        {
+          "name": "Algorithmic Trading, Finance & Financial Engineering",
+          "children": [
+            {
+              "name": "Algorithmic Trading and Stocks Essential Training"
+            },
+            {
+              "name": "Practical Python for Algorithmic Trading"
+            },
+            {
+              "name": "Financial Modeling Foundations"
+            },
+            {
+              "name": "Algorithmic Trading and Finance Models with Python, R, and Stata Essential Training (2019)"
+            },
+            {
+              "name": "Introduction to Financial Engineering and Risk Management (Columbia University)"
+            },
+            {
+              "name": "Financial Markets (Yale University)"
+            }
+          ]
+        },
+        {
+          "name": "Machine Learning, AI & Data Science",
+          "children": [
+            {
+              "name": "Machine Learning with Python: k-Means Clustering"
+            },
+            {
+              "name": "Applied Machine Learning: Algorithms"
+            },
+            {
+              "name": "Machine Learning and AI Foundations: Clustering and Association"
+            },
+            {
+              "name": "Predictive Analytics Essential Training: Data Mining"
+            },
+            {
+              "name": "Workshop / Fundamentals of Deep Learning"
+            },
+            {
+              "name": "AI Agent Developer (Vanderbilt University)"
+            },
+            {
+              "name": "AI Agents and Agentic AI with Python & Generative AI (Vanderbilt University)"
+            },
+            {
+              "name": "AI Agents and Agentic AI Architecture in Python (Vanderbilt University)"
+            },
+            {
+              "name": "Trustworthy Generative AI (Vanderbilt University)"
+            },
+            {
+              "name": "ChatGPT Advanced Data Analysis (Vanderbilt University)"
+            },
+            {
+              "name": "GPT Vision: Seeing the World through Generative AI (Vanderbilt University)"
+            },
+            {
+              "name": "OpenAI GPTs: Creating Your Own Custom AI Assistants (Vanderbilt University)"
+            },
+            {
+              "name": "Prompt Engineering (Vanderbilt University)"
+            },
+            {
+              "name": "Prompt Engineering for ChatGPT (Vanderbilt University)"
+            },
+            {
+              "name": "Prompt Engineering for Educators (Vanderbilt University)"
+            },
+            {
+              "name": "Innovative Teaching with ChatGPT (Vanderbilt University)"
+            }
+          ]
+        },
+        {
+          "name": "Data Engineering, Databases & Warehousing",
+          "children": [
+            {
+              "name": "Implementing a Data Warehouse with SQL Server 2022"
+            },
+            {
+              "name": "Introduction to Data Warehouses"
+            },
+            {
+              "name": "Transition from Data Science to Data Engineering"
+            }
+          ]
+        },
+        {
+          "name": "Cybersecurity, Network Security & Ethical Hacking",
+          "children": [
+            {
+              "name": "Metasploit for Beginners: Ethical Penetration Testing (Coursera Project Network)"
+            },
+            {
+              "name": "Encryption and Decryption using C++ (Coursera Project Network)"
+            },
+            {
+              "name": "Wireshark for Beginners: TCP IP Protocol Fundamentals (Coursera Project Network)"
+            },
+            {
+              "name": "Web Application Security Testing with OWASP ZAP (Coursera Project Network)"
+            },
+            {
+              "name": "How to Secure your Network Device using Cisco Packet Tracer (Coursera Project Network)"
+            },
+            {
+              "name": "Wireshark for Beginners: Capture Packets (Coursera Project Network)"
+            },
+            {
+              "name": "Vulnerability Scanning with Nmap: Network Scanning (Coursera Project Network)"
+            },
+            {
+              "name": "IT Fundamentals for Cybersecurity (IBM)"
+            },
+            {
+              "name": "Computer Networks and Network Security (IBM)"
+            },
+            {
+              "name": "Fundamentals of Computer Network Security (University of Colorado System)"
+            },
+            {
+              "name": "Secure Networked System with Firewall and IDS (University of Colorado System)"
+            },
+            {
+              "name": "Design and Analyze Secure Networked Systems (University of Colorado System)"
+            },
+            {
+              "name": "Cybersecurity Compliance Framework, Standards & Regulations (IBM)"
+            },
+            {
+              "name": "Basic Cryptography and Programming with Crypto API (University of Colorado System)"
+            },
+            {
+              "name": "Hacking and Patching (University of Colorado System)"
+            },
+            {
+              "name": "Operating Systems: Overview, Administration, and Security (IBM)"
+            },
+            {
+              "name": "Introduction to Cybersecurity Tools & Cyberattacks (IBM)"
+            },
+            {
+              "name": "Analyze Network Traffic with TCPDump: Build a Logging Tool (Coursera Project Network)"
+            },
+            {
+              "name": "Wireshark for Security: Detect Network Anomalies (Coursera Project Network)"
+            }
+          ]
+        },
+        {
+          "name": "Web Development & UI/UX",
+          "children": [
+            {
+              "name": "Holistic Web Development: Responsive UIs, Logic, Deployment (Board Infinity)"
+            },
+            {
+              "name": "Comprehensive Guide to Server-Side Logic and Development (Board Infinity)"
+            },
+            {
+              "name": "Scalable Deployment and DevOps for Web Development (Board Infinity)"
+            },
+            {
+              "name": "Mastering Responsive UI Design for Modern Web Development (Board Infinity)"
+            },
+            {
+              "name": "Responsive Web Design (Scrimba)"
+            },
+            {
+              "name": "Build a Responsive Layout with CSS Grid (Scrimba)"
+            },
+            {
+              "name": "Build a Product Splash Page with HTML and CSS (Scrimba)"
+            },
+            {
+              "name": "Build a Responsive Website with HTML and CSS (Scrimba)"
+            }
+          ]
+        },
+        {
+          "name": "Fitness, Health & Personal Training",
+          "children": [
+            {
+              "name": "NASM Personal Fitness Trainer (National Academy of Sports Medicine)"
+            },
+            {
+              "name": "Getting Started as a Personal Fitness Trainer (National Academy of Sports Medicine)"
+            },
+            {
+              "name": "Anatomy, Physiology, and Kinesiology for Fitness Professions (National Academy of Sports Medicine)"
+            },
+            {
+              "name": "NASM Personal Fitness Trainer Exam Preparation (National Academy of Sports Medicine)"
+            },
+            {
+              "name": "Understanding Fitness Programming (National Academy of Sports Medicine)"
+            },
+            {
+              "name": "Nutrition and Weight Management for Fitness Professionals (National Academy of Sports Medicine)"
+            }
+          ]
+        },
+        {
+          "name": "Soft Skills & Personal Development",
+          "children": [
+            {
+              "name": "Time Management Mastery"
+            },
+            {
+              "name": "The Science of Well-Being (Yale University)"
+            },
+            {
+              "name": "Football: More than a Game (The University of Edinburgh)"
+            },
+            {
+              "name": "Introduction to Psychology (Yale University)"
+            }
+          ]
+        },
+        {
+          "name": "Programming & Tools",
+          "children": [
+            {
+              "name": "MATLAB Onramp"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

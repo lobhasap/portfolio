@@ -4,30 +4,31 @@ function createTree() {
 
     treeJSON = d3.json('interests.json', function (treeData) {
 
-        console.log(treeData);
-
-        console.log("running");
-        // Calculate total nodes, max label length
-        var totalNodes = 0;
-        var maxLabelLength = 0;
-
         // panning variables
         var panSpeed = 200;
         var panBoundary = 20; // Within 20px from edges will pan when dragging.
         // Misc. variables
         var i = 0;
-        var duration = 750;
+        var duration = 400;
         var root;
+        var visibleNodes = [];
+        var LEVEL_SPACING = 300;
+        var LABEL_LIMIT = 46;
+        var VIEW_TOP = 150;
+        var VIEW_BOTTOM = 70;
 
         // size of the diagram
 
         var viewerWidth = $(window).width();
         var viewerHeight = $(window).height();
+        var resizeTimer;
         $(window).resize(function () {
-            // Do something more useful
             viewerWidth = $(window).width();
             viewerHeight = $(window).height();
-            console.log('doc height is ' + $(window).height());
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                fitTree(150);
+            }, 120);
         });
 
         var tree = d3.layout.tree()
@@ -39,32 +40,196 @@ function createTree() {
                 return [d.y, d.x];
             });
 
-        // A recursive helper function for performing some setup by walking through all nodes
+        // Give each top-level section its own colour and remember parent links
+        // so search results can expand the correct path.
+        var palette = ["#ffb703", "#4dabf7", "#51cf66", "#b197fc", "#ff6b9d", "#22d3ee", "#ff922b"];
 
-        function visit(parent, visitFn, childrenFn) {
-            if (!parent) return;
+        function applyColor(node, color) {
+            node.color = color;
+            (node.children || []).forEach(function (child) {
+                applyColor(child, color);
+            });
+        }
 
-            visitFn(parent);
+        function setParents(node) {
+            (node.children || []).forEach(function (child) {
+                child.parent = node;
+                setParents(child);
+            });
+        }
 
-            var children = childrenFn(parent);
-            if (children) {
-                var count = children.length;
-                for (var i = 0; i < count; i++) {
-                    visit(children[i], visitFn, childrenFn);
+        (treeData.children || []).forEach(function (category, index) {
+            applyColor(category, palette[index % palette.length]);
+        });
+        setParents(treeData);
+
+        function displayName(d) {
+            var count = d._children && d._children.length ? " (" + d._children.length + ")" : "";
+            var limit = LABEL_LIMIT - count.length;
+            var name = d.name;
+
+            if (name.length > limit) {
+                name = name.substring(0, limit - 3) + "...";
+            }
+            return name + count;
+        }
+
+        function textColor(d) {
+            if (d.searchMatch) return "#ffd43b";
+            if (d.depth === 0) return "#ffffff";
+            if (d.depth === 1) return d.color || "#dddddd";
+            return "#dddddd";
+        }
+
+        function textWeight(d) {
+            return d.depth <= 1 || d.searchMatch ? "700" : "400";
+        }
+
+        function nodeRadius(d) {
+            if (d.depth === 0) return 7;
+            return d.children || d._children ? 5.5 : 3.5;
+        }
+
+        function nodeFill(d) {
+            if (d._children) return d.color || "#dddddd";
+            if (d.children) return "#111111";
+            if (d.depth === 1) return d.color || "#dddddd";
+            return "#dddddd";
+        }
+
+        function nodeStroke(d) {
+            return d.color || "#dddddd";
+        }
+
+        function allNodes() {
+            var result = [];
+            (function walk(node) {
+                result.push(node);
+                (node.children || node._children || []).forEach(walk);
+            })(root);
+            return result;
+        }
+
+        function expandAncestors(node) {
+            var parent = node.parent;
+            while (parent) {
+                if (parent._children) {
+                    parent.children = parent._children;
+                    parent._children = null;
                 }
+                parent = parent.parent;
             }
         }
 
-        // Call visit function to establish maxLabelLength
-        visit(treeData, function (d) {
-            totalNodes++;
-            maxLabelLength = Math.max(d.name.length, maxLabelLength);
+        function nodeBounds(d) {
+            var width = Math.min(displayName(d).length, LABEL_LIMIT) * 6.4 + 24;
+            var hasChildren = d.children || d._children;
+            return {
+                minX: d.y - (hasChildren ? width : 20),
+                maxX: d.y + (hasChildren ? 20 : width),
+                minY: d.x - 18,
+                maxY: d.x + 18
+            };
+        }
 
-        }, function (d) {
-            return d.children && d.children.length > 0 ? d.children : null;
-        });
+        function extendBounds(bounds, next) {
+            if (!bounds) return next;
+            bounds.minX = Math.min(bounds.minX, next.minX);
+            bounds.maxX = Math.max(bounds.maxX, next.maxX);
+            bounds.minY = Math.min(bounds.minY, next.minY);
+            bounds.maxY = Math.max(bounds.maxY, next.maxY);
+            return bounds;
+        }
 
-        console.log(maxLabelLength);
+        function fitToBounds(bounds, animationDuration) {
+            if (!bounds) return;
+
+            var padding = 40;
+            var bottomInset = window.innerWidth <= 820 ? 180 : VIEW_BOTTOM;
+            var width = Math.max(bounds.maxX - bounds.minX, 1);
+            var height = Math.max(bounds.maxY - bounds.minY, 1);
+            var availableWidth = viewerWidth - padding * 2;
+            var availableHeight = viewerHeight - VIEW_TOP - bottomInset;
+            var scale = Math.min(availableWidth / width, availableHeight / height, 1.35);
+
+            scale = Math.max(scale, 0.12);
+
+            var translateX = (viewerWidth - width * scale) / 2 - bounds.minX * scale;
+            var translateY = VIEW_TOP + (availableHeight - height * scale) / 2 - bounds.minY * scale;
+            var transform = "translate(" + translateX + "," + translateY + ")scale(" + scale + ")";
+
+            if (animationDuration) {
+                svgGroup.transition().duration(animationDuration).attr("transform", transform);
+            } else {
+                svgGroup.attr("transform", transform);
+            }
+            zoomListener.scale(scale).translate([translateX, translateY]);
+        }
+
+        function fitTree(animationDuration) {
+            var bounds = null;
+            visibleNodes.forEach(function (d) {
+                bounds = extendBounds(bounds, nodeBounds(d));
+            });
+            fitToBounds(bounds, animationDuration);
+        }
+
+        function fitToNodes(nodes, animationDuration) {
+            var bounds = null;
+            nodes.forEach(function (d) {
+                if (typeof d.x === "number" && typeof d.y === "number") {
+                    bounds = extendBounds(bounds, nodeBounds(d));
+                }
+            });
+            fitToBounds(bounds, animationDuration);
+        }
+
+        function clearSearch() {
+            allNodes().forEach(function (node) {
+                node.searchMatch = false;
+            });
+            svgGroup.selectAll("g.node text")
+                .style("fill", textColor)
+                .style("font-weight", textWeight);
+            d3.select("#tree-search-status").text("");
+        }
+
+        function runSearch(term) {
+            term = (term || "").trim().toLowerCase();
+            clearSearch();
+
+            if (term.length < 2) return;
+
+            var matches = allNodes().filter(function (node) {
+                return node.name.toLowerCase().indexOf(term) !== -1;
+            });
+
+            if (!matches.length) {
+                d3.select("#tree-search-status").text("no matches");
+                return;
+            }
+
+            matches.forEach(function (node) {
+                node.searchMatch = true;
+                expandAncestors(node);
+            });
+
+            update(root);
+            d3.select("#tree-search-status").text(matches.length + (matches.length === 1 ? " match" : " matches"));
+            fitToNodes(matches, 300);
+        }
+
+        function resetView() {
+            collapseAll(root);
+            if (root._children) {
+                root.children = root._children;
+                root._children = null;
+            }
+            d3.select("#tree-search").property("value", "");
+            update(root);
+            clearSearch();
+            fitTree(300);
+        }
 
         // sort the tree according to the node names
 
@@ -96,7 +261,6 @@ function createTree() {
                 svgGroup.transition().attr("transform", "translate(" + translateX + "," + translateY + ")scale(" + scale + ")");
                 d3.select(domNode).select('g.node').attr("transform", "translate(" + translateX + "," + translateY + ")");
                 zoomListener.scale(zoomListener.scale());
-                console.log(scale + "SDFDSFDSF")
                 zoomListener.translate([translateX, translateY]);
                 panTimer = setTimeout(function () {
                     pan(domNode, speed, direction);
@@ -181,14 +345,6 @@ function createTree() {
             }
         }
 
-        function expand(d) {
-            if (d._children) {
-                d.children = d._children;
-                d.children.forEach(expand);
-                d._children = null;
-            }
-        }
-
         var overCircle = function (d) {
             selectedNode = d;
             updateTempConnector();
@@ -263,10 +419,12 @@ function createTree() {
         // Toggle children on click.
 
         function click(d) {
-            // if (d3.event.defaultPrevented) return; // click suppressed
+            if (d3.event && d3.event.defaultPrevented) return;
+            if (!d.children && !d._children) return;
+
             d = toggleChildren(d);
             update(d);
-            centerNode(d);
+            fitTree(duration);
         }
 
         function update(source) {
@@ -286,19 +444,18 @@ function createTree() {
                 }
             };
             childCount(0, root);
-            var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line  
+            var newHeight = d3.max(levelWidth) * 28; // 28 pixels per line
             tree = tree.size([newHeight, viewerWidth]);
 
             // Compute the new tree layout.
             var nodes = tree.nodes(root).reverse(),
                 links = tree.links(nodes);
+            visibleNodes = nodes;
 
-            // Set widths between levels based on maxLabelLength.
+            // Keep a consistent level spacing. Labels are truncated for display
+            // and the full value is available in the node tooltip.
             nodes.forEach(function (d) {
-                d.y = (d.depth * (maxLabelLength * 10)); //maxLabelLength * 10px
-                // alternatively to keep a fixed scale one can set a fixed depth per level
-                // Normalize for fixed-depth by commenting out below line
-                // d.y = (d.depth * 500); //500px per level.
+                d.y = d.depth * LEVEL_SPACING;
             });
 
             // Update the nodes…
@@ -309,17 +466,28 @@ function createTree() {
 
             // Enter any new nodes at the parent's previous position.
             var nodeEnter = node.enter().append("g")
-                .attr("class", "node")
+                .attr("class", function (d) {
+                    return d.url ? "node url-node" : "node";
+                })
                 .attr("transform", function (d) {
                     return "translate(" + source.y0 + "," + source.x0 + ")";
                 })
                 .on('click', click);
 
+            nodeEnter.append("title").text(function (d) {
+                return d.name;
+            });
+
             nodeEnter.append("circle")
                 .attr('class', 'nodeCircle')
-                .attr("r", 5)
-                .style("fill", function (d) {
-                    return d._children ? "lightsteelblue" : "";
+                .attr("r", nodeRadius)
+                .style("fill", nodeFill)
+                .style("stroke", nodeStroke)
+                .on("mouseover", function (d) {
+                    d3.select(this).transition().duration(120).attr("r", nodeRadius(d) + 2.5);
+                })
+                .on("mouseout", function (d) {
+                    d3.select(this).transition().duration(120).attr("r", nodeRadius(d));
                 });
 
             nodeEnter.append("text")
@@ -330,10 +498,22 @@ function createTree() {
                 .attr("text-anchor", function (d) {
                     return d.children || d._children ? "end" : "start";
                 })
-                .text(function (d) {
-                    return d.name;
+                .text(displayName)
+                .style("fill-opacity", 0)
+                .style("fill", textColor)
+                .style("font-weight", textWeight)
+                .on("click", function (d) {
+                    if (d.url) {
+                        d3.event.stopPropagation();
+                        window.open(d.url, "_blank", "noopener");
+                    }
                 })
-                .style("fill-opacity", 0);
+                .on("mouseover", function (d) {
+                    d3.select(this).style("fill", "#ffffff").style("font-weight", "700");
+                })
+                .on("mouseout", function (d) {
+                    d3.select(this).style("fill", textColor(d)).style("font-weight", textWeight(d));
+                });
 
             // phantom node to give us mouseover in a radius around it
             nodeEnter.append("circle")
@@ -349,7 +529,7 @@ function createTree() {
                     outCircle(node);
                 });
 
-            // Update the text to reflect whether node has children or not.
+            // Update labels, colours and radii as nodes expand or collapse.
             node.select('text')
                 .attr("x", function (d) {
                     return d.children || d._children ? -10 : 10;
@@ -357,16 +537,14 @@ function createTree() {
                 .attr("text-anchor", function (d) {
                     return d.children || d._children ? "end" : "start";
                 })
-                .text(function (d) {
-                    return d.name;
-                });
+                .text(displayName)
+                .style("fill", textColor)
+                .style("font-weight", textWeight);
 
-            // Change the circle fill depending on whether it has children and is collapsed
             node.select("circle.nodeCircle")
-                .attr("r", 2)
-                .style("fill", function (d) {
-                    return d._children ? "lightsteelblue" : "#fff";
-                });
+                .attr("r", nodeRadius)
+                .style("fill", nodeFill)
+                .style("stroke", nodeStroke);
 
             // Transition nodes to their new position.
             var nodeUpdate = node.transition()
@@ -402,6 +580,9 @@ function createTree() {
             // Enter any new links at the parent's previous position.
             link.enter().insert("path", "g")
                 .attr("class", "link")
+                .style("stroke", function (d) {
+                    return d.target.color || "#cccccc";
+                })
                 .attr("d", function (d) {
                     var o = {
                         x: source.x0,
@@ -412,6 +593,10 @@ function createTree() {
                         target: o
                     });
                 });
+
+            link.style("stroke", function (d) {
+                return d.target.color || "#cccccc";
+            });
 
             // Transition links to their new position.
             link.transition()
@@ -442,17 +627,29 @@ function createTree() {
 
         // Append a group which holds all nodes and which the zoom Listener can act upon.
         var svgGroup = baseSvg.append("g");
-        zoomListener.scale(1.7);
-        console.log(zoomListener.scale() + "SDFDSFDSF")
+
         // Define the root
         root = treeData;
         root.x0 = viewerHeight / 2;
         root.y0 = 0;
 
-        collapseAll(root)
+        // Start with the top-level sections visible so the portfolio has an
+        // immediate overview, then let the visitor drill down.
+        collapseAll(root);
+        if (root._children) {
+            root.children = root._children;
+            root._children = null;
+        }
 
-        // Layout the tree initially and center on the root node.
         update(root);
-        centerNode(root);
+        fitTree(0);
+
+        d3.select("#tree-search").on("input", function () {
+            runSearch(this.value);
+        });
+        d3.select("#tree-fit").on("click", function () {
+            fitTree(300);
+        });
+        d3.select("#tree-reset").on("click", resetView);
     });
 }
