@@ -99,6 +99,10 @@
             },
             {
               "name": "Monitoring & Logging"
+            },
+            {
+              "name": "Live Demo",
+              "url": "https://ddos-prevention.vercel.app"
             }
           ]
         },
@@ -173,6 +177,10 @@
             },
             {
               "name": "Results & Progress Tracking"
+            },
+            {
+              "name": "Live Demo",
+              "url": "https://lobhasap.github.io/spellcheck/"
             }
           ]
         },
@@ -188,6 +196,10 @@
             },
             {
               "name": "99 Lighthouse Score"
+            },
+            {
+              "name": "Live Demo",
+              "url": "https://lobhasap.github.io/portfolio/"
             }
           ]
         },
@@ -210,6 +222,96 @@
               "name": "Published Research Paper"
             }
           ]
+        },
+        {
+          "name": "Payout Engine",
+          "url": "https://github.com/lobhasap/Payout-Engine",
+          "children": [
+            { "name": "Live Demo", "url": "https://playto-cyan.vercel.app" }
+          ]
+        },
+        {
+          "name": "Weather App",
+          "url": "https://github.com/lobhasap/weather",
+          "children": [
+            { "name": "Live Demo", "url": "https://weather-flax-omega.vercel.app" }
+          ]
+        },
+        {
+          "name": "Expense Voucher Management System",
+          "url": "https://github.com/lobhasap/Expense-Voucher-Management-System",
+          "children": [
+            { "name": "React, Node.js & PostgreSQL" },
+            { "name": "Expense Voucher Approval Workflow" }
+          ]
+        },
+        {
+          "name": "Expense Splitter",
+          "url": "https://github.com/lobhasap/Expense-Splitter",
+          "children": [
+            { "name": "Web App and Backend" },
+            { "name": "Backend Repository", "url": "https://github.com/lobhasap/Expense-Splitter-backendinti" }
+          ]
+        },
+        {
+          "name": "AI Chat Support",
+          "url": "https://github.com/lobhasap/AI-Chat-Support"
+        },
+        {
+          "name": "VS Code AI Chat Assistant",
+          "url": "https://github.com/lobhasap/VS-Code-AI-Chat-Assistant"
+        },
+        {
+          "name": "Credit Chateau",
+          "url": "https://github.com/lobhasap/Credit-Chateau"
+        },
+        {
+          "name": "Office Network Infrastructure Design",
+          "url": "https://github.com/lobhasap/-Office-Network-Infrastructure-Design"
+        },
+        {
+          "name": "Amber Flux",
+          "url": "https://github.com/lobhasap/amber-flux"
+        },
+        {
+          "name": "Data Structures (C)",
+          "url": "https://github.com/lobhasap/ds"
+        },
+        {
+          "name": "Operating Systems Projects",
+          "url": "https://github.com/lobhasap/os"
+        },
+        {
+          "name": "C++ Projects",
+          "url": "https://github.com/lobhasap/sp"
+        },
+        {
+          "name": "TMKOC Advice App",
+          "url": "https://github.com/lobhasap/TMKOC-Advice-app"
+        },
+        {
+          "name": "The Panic Button Portal",
+          "url": "https://github.com/lobhasap/TPBP"
+        },
+        {
+          "name": "Student Management",
+          "url": "https://github.com/lobhasap/Studentmanagement"
+        },
+        {
+          "name": "To-do List",
+          "url": "https://github.com/lobhasap/To-do-list"
+        },
+        {
+          "name": "Business Test App",
+          "url": "https://github.com/lobhasap/biztest"
+        },
+        {
+          "name": "Awtl",
+          "url": "https://github.com/lobhasap/awtl"
+        },
+        {
+          "name": "Ashost",
+          "url": "https://github.com/lobhasap/ashost"
         }
       ]
     },

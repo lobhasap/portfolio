@@ -1,4 +1,4 @@
-.top {
+  .top {
     position: relative;
     align-items: center;
     justify-content: center;
@@ -8,6 +8,8 @@
     color: #dddddd;
     margin: 26px 32px 0;
     padding: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .subtitle {
@@ -17,6 +19,9 @@
     color: #9a9a9a;
     margin: 6px 32px 0;
     padding: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-inline: 16px;
   }
 
   .tree-toolbar {
@@ -43,6 +48,12 @@
     color: #eeeeee;
     font-family: MyFont, sans-serif;
     font-size: 12px;
+  }
+
+  .tree-toolbar input:focus-visible,
+  .tree-toolbar button:focus-visible {
+    outline: 2px solid #ffd43b;
+    outline-offset: 2px;
   }
 
   .tree-toolbar input::placeholder {
@@ -111,6 +122,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     clip-path: inset(140px 0 42px 0);
+    --tree-top-inset: 140px;
+    --tree-bottom-inset: 42px;
   }
   
   .italics {
@@ -133,7 +146,7 @@
     .tree-toolbar {
       top: auto;
       right: 12px;
-      bottom: 44px;
+      bottom: 12px;
       left: 12px;
       flex-wrap: wrap;
       justify-content: center;
@@ -141,7 +154,9 @@
     }
 
     .tree-toolbar input {
+      flex: 1 0 100%;
       width: 100%;
+      min-width: 0;
       text-align: center;
     }
 
@@ -150,12 +165,88 @@
     }
 
     #tree-container {
-      clip-path: inset(140px 0 180px 0);
+      clip-path: inset(140px 0 104px 0);
+      --tree-bottom-inset: 104px;
+    }
+
+    .subtitle::after {
+      content: "Tap nodes to expand · drag to pan";
+      display: block;
+      margin-top: 4px;
+      color: #b0b0b0;
     }
 
     .instructions {
       display: none;
     }
   }
-  
-  
+
+  @media (max-width: 480px) {
+    .top { margin: 18px 16px 0; font-size: 20px; }
+    .subtitle { margin: 4px 16px 0; font-size: 11px; }
+    #tree-container {
+      clip-path: inset(118px 0 112px 0);
+      --tree-top-inset: 64px;
+      --tree-bottom-inset: 112px;
+    }
+    .tree-toolbar { gap: 6px; padding: 7px; }
+    .tree-toolbar button { min-height: 36px; }
+  }
+
+  @container portfolio-shell (max-width: 820px) {
+    .tree-toolbar {
+      top: auto;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-radius: 16px;
+    }
+
+    .tree-toolbar input {
+      flex: 1 0 100%;
+      width: 100%;
+      min-width: 0;
+      text-align: center;
+    }
+
+    #tree-search-status { min-width: 0; }
+    #tree-container {
+      clip-path: inset(140px 0 104px 0);
+      --tree-bottom-inset: 104px;
+    }
+    .subtitle::after {
+      content: "Tap nodes to expand · drag to pan";
+      display: block;
+      margin-top: 4px;
+      color: #b0b0b0;
+    }
+    .instructions { display: none; }
+  }
+
+  @container portfolio-shell (max-width: 480px) {
+    .top { margin: 18px 16px 0; font-size: 20px; }
+    .subtitle { margin: 4px 16px 0; font-size: 11px; }
+    #tree-container {
+      clip-path: inset(118px 0 112px 0);
+      --tree-top-inset: 64px;
+      --tree-bottom-inset: 112px;
+    }
+    .tree-toolbar { gap: 6px; padding: 7px; }
+    .tree-toolbar button { min-height: 36px; }
+  }
+  :host {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .wrapper {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+  }

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Redirecting to portfolio</title>
+  <script>
+    (function () {
+      var prefix = '/portfolio';
+      var path = window.location.pathname;
+      if (path.indexOf(prefix) === 0) path = path.slice(prefix.length);
+      if (!path || path === '/') path = '/';
+      window.location.replace(prefix + '/#' + path + window.location.search + window.location.hash);
+    }());
+  </script>
+</head>
+<body>
+  <p>Taking you to the requested portfolio page…</p>
+</body>
+</html>

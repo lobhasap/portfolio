@@ -7,6 +7,7 @@
 
 nav {
   position: relative;
+  width: 100%;
 }
 
 .hr-animate {
@@ -59,11 +60,17 @@ ul {
   /* top:40%;
     left:40%; */
   display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 0 clamp(4px, 1vw, 16px);
   /* center elements */
     justify-content: center;
     /* box-sizing: border-box; */
     /* margin: 10px 40px; */
-    padding: 0 clamp(3.125rem, 8%, 200px) 0 clamp(3.125rem, 8%, 200px);
+  padding: 0 clamp(16px, 8%, 200px);
+  margin: 0;
+  list-style: none;
 
 }
 li{
@@ -76,11 +83,6 @@ ul li {
   display: block;
   
 }
-ul:hover li  {
-  opacity: 0.2;
-  filter: blur(2px);
-}
-
 a{
   text-decoration: none;
   color: #dddddd;
@@ -91,4 +93,94 @@ a{
 ul li:hover {
   opacity: 1;
   filter: blur(0px);
+}
+
+a:focus-visible {
+  outline: 2px solid #ffd43b;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (max-width: 560px) {
+  ul { padding: 0 12px; flex-wrap: wrap; }
+  li { padding: 10px 12px; }
+}
+
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  flex: 0 0 auto;
+}
+
+.header.wrapper {
+  height: auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+li { padding: 10px clamp(12px, 2.5vw, 40px); }
+
+@media (max-width: 560px) {
+  ul { padding: 0 8px; justify-content: space-evenly; }
+  li { padding: 8px clamp(6px, 2.2vw, 12px); }
+  a { font-size: clamp(0.9rem, 4vw, 1rem); }
+  .hr-animate { margin-left: 16px; margin-right: 16px; }
+}
+
+a.active {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+@container portfolio-shell (max-width: 560px) {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 0;
+    padding: 0 8px;
+  }
+
+  li {
+    min-width: 0;
+    padding: 8px 2px;
+    text-align: center;
+  }
+
+  a {
+    white-space: nowrap;
+    font-size: clamp(0.8rem, 3.7cqw, 1rem);
+  }
+}
+
+@media (max-width: 900px) {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    padding: 0 8px;
+  }
+
+  li { min-width: 0; padding: 8px 2px; text-align: center; }
+  a { white-space: nowrap; font-size: clamp(0.8rem, 3.7vw, 1rem); }
+}
+
+@media (max-width: 900px) {
+  .header.wrapper,
+  nav,
+  ul {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-inline: 6px;
+  }
+
+  li { padding-inline: 1px; }
+  a { font-size: clamp(0.75rem, 3.5vw, 1rem); }
 }

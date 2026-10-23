@@ -7,6 +7,10 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
+    Object.defineProperty(window, 'matchMedia', {
+      configurable: true,
+      value: () => ({ matches: true })
+    });
     await TestBed.configureTestingModule({
       declarations: [ HomeComponent ]
     })

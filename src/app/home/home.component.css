@@ -1,12 +1,12 @@
 .parallax {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   /* right: 0;
   margin-right: 10%; */
   /* object-fit:none; */
   background-image: url("../../assets/images/background_illus1.svg");
-  /* background-image: url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-3.png), 
+  /* background-image: url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-3.png),
   /* url("../../assets/images/background_illus.svg") */
   /* url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-2.png) */
   /* , url(https://raw.githubusercontent.com/oscicen/oscicen.github.io/master/img/depth-1.png); */
@@ -27,6 +27,8 @@
 
 .circle {
   position: absolute;
+  top: 60px;
+  left: 60px;
   /* top: calc(85%);
   left: calc(95%); */
   /* height: 20px;
@@ -175,7 +177,8 @@ background: var(--colors-dreamy-gradients-orange); */
 .pulsate {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow: clip;
   animation: heartbeat 8s ease infinite both;
 }
 
@@ -220,24 +223,39 @@ background: var(--colors-dreamy-gradients-orange); */
 
 .row {
   display: flex;
+  align-items: center;
+  min-height: 100%;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+:host {
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
 }
 
 .column-one {
-  flex: 55%;
-  padding: 25vh 10px 0 clamp(50px, 8%, 200px);
+  flex: 1 1 55%;
+  min-width: 0;
+  padding: clamp(36px, 12vh, 140px) 16px clamp(32px, 8vh, 80px) clamp(32px, 8vw, 200px);
   /* trbl */
 }
 .column-two {
-  flex: 45%;
+  flex: 1 1 45%;
+  min-width: 0;
   padding: 0 clamp(50px, 8%, 200px) 0 10px;
 }
 
 .column-one *,
 .column-two * {
   position: relative;
-  word-wrap: break-word; /* IE 5.5-7 */
-  white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
-  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 p {
@@ -255,26 +273,117 @@ p {
   font-size: 1rem;
 }
 .p-name {
-  font-size: 4rem;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.08;
   margin: 0.2em 0 0.5em 0;
   font-weight: 700;
   color: #dddddd;
 }
 
-.p-name2 {
-  font-size: 4rem;
-  margin-left: 3px;
-  /* margin: 0.2em 0 0.5em 0; */
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-  opacity: 0.9;
-  background: linear-gradient(-45deg, #02dbeb, #a10ff6, #ffc70d, #fb3232);
-  background-size: 300%;
-  -webkit-backgroungfnd-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: animated_text 3s ease-in-out infinite;
-  -moz-animation: animated_text 3s ease-in-out infinite;
-  -webkit-animation: animated_text 3s ease-in-out infinite;
+@media (max-width: 900px) {
+  .column-one {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 100%;
+    padding: clamp(32px, 8vh, 72px) clamp(22px, 5vw, 48px);
+  }
+  .column-two { display: none; }
+  .name,
+  .column-one > p {
+    width: 100%;
+    max-width: 100%;
+  }
+  .p-name {
+    max-width: 100%;
+    font-size: clamp(2rem, 6vw, 3rem);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+  .p-first, .p-second, .p-third {
+    max-width: 38rem;
+    overflow-wrap: anywhere;
+  }
+  .parallax {
+    background-position: right 22%;
+    background-size: min(34vh, 250px) auto;
+    opacity: 0.24;
+  }
+}
+
+@media (max-width: 600px) {
+  .row { min-height: 100%; align-items: stretch; }
+  .row.wrapper { height: auto; min-height: 100%; overflow-x: clip; overflow-y: auto; }
+  .row { align-items: flex-start; }
+  .column-one { padding: clamp(40px, 9vh, 72px) 22px 32px; }
+  .p-name { font-size: clamp(2rem, 8vw, 2.8rem); line-height: 1.08; overflow-wrap: anywhere; }
+  .pre-name { font-size: 0.95rem; }
+  .parallax {
+    background-size: min(62vw, 220px) auto;
+    background-position: calc(100% + 48px) 8%;
+    opacity: 0.14;
+  }
+  .pulsate { inset: 0; }
+  .p-first, .p-second, .p-third { max-width: 38rem; }
+}
+
+@container portfolio-shell (max-width: 900px) {
+  .column-one {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    flex: 1 1 100%;
+    flex-basis: 100%;
+    padding: clamp(40px, 10cqh, 100px) clamp(24px, 7cqw, 64px);
+  }
+
+  .column-two { display: none; }
+
+  .name,
+  .column-one > p { width: 100%; max-width: 100%; }
+  .p-name {
+    max-width: 100%;
+    font-size: clamp(2rem, 6cqw, 3rem);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+  .p-first, .p-second, .p-third { overflow-wrap: anywhere; }
+
+  .parallax {
+    background-position: 85% 25%;
+    background-size: min(36cqh, 280px) auto;
+    opacity: 0.5;
+  }
+}
+
+@container portfolio-shell (max-width: 600px) {
+  .row { min-height: 100%; align-items: flex-start; }
+
+  .row.wrapper {
+    height: auto;
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
+  }
+
+  .column-one {
+    width: 100%;
+    flex: 1 1 100%;
+    padding: clamp(32px, 8cqh, 56px) 22px 32px;
+  }
+
+  .column-one > * { max-width: 100%; }
+  .p-name { font-size: clamp(2rem, 8cqw, 2.8rem); overflow-wrap: anywhere; }
+  .p-first, .p-second, .p-third { overflow-wrap: anywhere; }
+  .pre-name { font-size: 0.95rem; }
+
+  .parallax {
+    background-size: min(62cqw, 220px) auto;
+    background-position: calc(100% + 48px) 8%;
+    opacity: 0.14;
+  }
+
+  .pulsate { inset: 0; }
 }
 
 a:link {
@@ -296,16 +405,4 @@ a:hover {
 /* selected link */
 a:active {
   color: blue;
-}
-
-@keyframes animated_text {
-  0% {
-    background-position: 0px 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0px 50%;
-  }
 }

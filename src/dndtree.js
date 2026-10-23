@@ -1,35 +1,69 @@
 
+var treeGeneration = 0;
+var treeRequest = null;
+var treeResizeHandler = null;
+var treeResizeTimer = null;
+
+function destroyTree() {
+    treeGeneration += 1;
+    if (treeResizeHandler) window.removeEventListener('resize', treeResizeHandler);
+    treeResizeHandler = null;
+    if (treeResizeTimer) window.clearTimeout(treeResizeTimer);
+    treeResizeTimer = null;
+    if (treeRequest && typeof treeRequest.abort === 'function') treeRequest.abort();
+    treeRequest = null;
+    if (typeof d3 !== 'undefined') d3.select("#tree-container").selectAll("*").remove();
+}
+
 function createTree() {
+    destroyTree();
+    var generation = treeGeneration;
 
 
-    treeJSON = d3.json('interests.json', function (treeData) {
+    var dataUrl = new URL('interests.json', document.querySelector('base').href).toString();
+    treeRequest = d3.json(dataUrl, function (error, treeData) {
+        if (generation !== treeGeneration) return;
+        treeRequest = null;
+        if (error || !treeData) {
+            d3.select("#tree-search-status").text("Could not load portfolio data");
+            return;
+        }
 
         // panning variables
-        var panSpeed = 200;
-        var panBoundary = 20; // Within 20px from edges will pan when dragging.
         // Misc. variables
         var i = 0;
         var duration = 400;
         var root;
         var visibleNodes = [];
-        var LEVEL_SPACING = 300;
-        var LABEL_LIMIT = 46;
-        var VIEW_TOP = 150;
-        var VIEW_BOTTOM = 70;
+        var treeContainer = document.getElementById('tree-container');
+        var viewerWidth = treeContainer.clientWidth || window.innerWidth;
+        var viewerHeight = treeContainer.clientHeight || window.innerHeight;
+        var LEVEL_SPACING = viewerWidth <= 600 ? Math.max(140, viewerWidth * 0.38) :
+            viewerWidth <= 900 ? Math.max(190, viewerWidth * 0.42) : 300;
+        var LABEL_LIMIT = viewerWidth <= 600 ? 28 : viewerWidth <= 900 ? 36 : 46;
+        var NODE_FONT_SIZE = viewerWidth <= 600 ? 14 : viewerWidth <= 900 ? 12 : 11;
+        var NODE_CHAR_WIDTH = NODE_FONT_SIZE * 0.62;
+        var VIEW_TOP = 140;
+        var VIEW_BOTTOM = 42;
 
         // size of the diagram
-
-        var viewerWidth = $(window).width();
-        var viewerHeight = $(window).height();
-        var resizeTimer;
-        $(window).resize(function () {
-            viewerWidth = $(window).width();
-            viewerHeight = $(window).height();
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function () {
-                fitTree(150);
+        treeResizeHandler = function () {
+            viewerWidth = treeContainer.clientWidth || window.innerWidth;
+            viewerHeight = treeContainer.clientHeight || window.innerHeight;
+            LEVEL_SPACING = viewerWidth <= 600 ? Math.max(140, viewerWidth * 0.38) :
+                viewerWidth <= 900 ? Math.max(190, viewerWidth * 0.42) : 300;
+            LABEL_LIMIT = viewerWidth <= 600 ? 28 : viewerWidth <= 900 ? 36 : 46;
+            NODE_FONT_SIZE = viewerWidth <= 600 ? 14 : viewerWidth <= 900 ? 12 : 11;
+            NODE_CHAR_WIDTH = NODE_FONT_SIZE * 0.62;
+            window.clearTimeout(treeResizeTimer);
+            treeResizeTimer = window.setTimeout(function () {
+                if (root) {
+                    update(root);
+                    fitTree(150);
+                }
             }, 120);
-        });
+        };
+        window.addEventListener('resize', treeResizeHandler, { passive: true });
 
         var tree = d3.layout.tree()
 
@@ -122,7 +156,7 @@ function createTree() {
         }
 
         function nodeBounds(d) {
-            var width = Math.min(displayName(d).length, LABEL_LIMIT) * 6.4 + 24;
+            var width = Math.min(displayName(d).length, LABEL_LIMIT) * NODE_CHAR_WIDTH + 24;
             var hasChildren = d.children || d._children;
             return {
                 minX: d.y - (hasChildren ? width : 20),
@@ -144,18 +178,20 @@ function createTree() {
         function fitToBounds(bounds, animationDuration) {
             if (!bounds) return;
 
-            var padding = 40;
-            var bottomInset = window.innerWidth <= 820 ? 180 : VIEW_BOTTOM;
+            var padding = viewerWidth <= 600 ? 20 : 40;
+            var styles = window.getComputedStyle(treeContainer);
+            var topInset = parseFloat(styles.getPropertyValue('--tree-top-inset')) || VIEW_TOP;
+            var bottomInset = parseFloat(styles.getPropertyValue('--tree-bottom-inset')) || VIEW_BOTTOM;
             var width = Math.max(bounds.maxX - bounds.minX, 1);
             var height = Math.max(bounds.maxY - bounds.minY, 1);
             var availableWidth = viewerWidth - padding * 2;
-            var availableHeight = viewerHeight - VIEW_TOP - bottomInset;
+            var availableHeight = viewerHeight - topInset - bottomInset;
             var scale = Math.min(availableWidth / width, availableHeight / height, 1.35);
 
             scale = Math.max(scale, 0.12);
 
             var translateX = (viewerWidth - width * scale) / 2 - bounds.minX * scale;
-            var translateY = VIEW_TOP + (availableHeight - height * scale) / 2 - bounds.minY * scale;
+            var translateY = topInset + (availableHeight - height * scale) / 2 - bounds.minY * scale;
             var transform = "translate(" + translateX + "," + translateY + ")scale(" + scale + ")";
 
             if (animationDuration) {
@@ -184,6 +220,15 @@ function createTree() {
             fitToBounds(bounds, animationDuration);
         }
 
+        function fitBranch(node, animationDuration) {
+            var branch = [root];
+            (function collect(current) {
+                branch.push(current);
+                (current.children || []).forEach(collect);
+            })(node);
+            fitToNodes(branch, animationDuration);
+        }
+
         function clearSearch() {
             allNodes().forEach(function (node) {
                 node.searchMatch = false;
@@ -200,11 +245,19 @@ function createTree() {
 
             if (term.length < 2) return;
 
+            collapseAll(root);
+            if (root._children) {
+                root.children = root._children;
+                root._children = null;
+            }
+
             var matches = allNodes().filter(function (node) {
                 return node.name.toLowerCase().indexOf(term) !== -1;
             });
 
             if (!matches.length) {
+                update(root);
+                fitTree(300);
                 d3.select("#tree-search-status").text("no matches");
                 return;
             }
@@ -230,16 +283,6 @@ function createTree() {
             clearSearch();
             fitTree(300);
         }
-
-        // sort the tree according to the node names
-
-        function sortTree() {
-            tree.sort(function (a, b) {
-                return b.name.toLowerCase() < a.name.toLowerCase() ? 1 : -1;
-            });
-        }
-        // Sort the tree initially incase the JSON isn't in a sorted order.
-        // sortTree();
 
         // TODO: Pan function, can be better implemented.
 
@@ -331,6 +374,8 @@ function createTree() {
             .attr("width", "100%")
             .attr("height", "100%")
             .attr("class", "overlay")
+            .attr("role", "tree")
+            .attr("aria-label", "About, experience, projects, and certifications")
             .call(zoomListener);
 
 
@@ -424,7 +469,11 @@ function createTree() {
 
             d = toggleChildren(d);
             update(d);
-            fitTree(duration);
+            if (viewerWidth <= 600 && d !== root) {
+                fitBranch(d, duration);
+            } else {
+                fitTree(duration);
+            }
         }
 
         function update(source) {
@@ -469,10 +518,30 @@ function createTree() {
                 .attr("class", function (d) {
                     return d.url ? "node url-node" : "node";
                 })
+                .attr("role", "treeitem")
+                .attr("tabindex", 0)
+                .attr("aria-label", function (d) { return d.name; })
+                .attr("aria-expanded", function (d) {
+                    return d.children || d._children ? !!d.children : null;
+                })
                 .attr("transform", function (d) {
                     return "translate(" + source.y0 + "," + source.x0 + ")";
                 })
-                .on('click', click);
+                .on('click', click)
+                .on('keydown', function (d) {
+                    var event = d3.event;
+                    if (event.keyCode !== 13 && event.keyCode !== 32) return;
+                    event.preventDefault();
+                    event.stopPropagation();
+                    var hasChildren = d.children || d._children;
+                    if (event.keyCode === 13 && d.url) {
+                        window.open(d.url, "_blank", "noopener");
+                    } else if (hasChildren) {
+                        click(d);
+                    } else if (d.url) {
+                        window.open(d.url, "_blank", "noopener");
+                    }
+                });
 
             nodeEnter.append("title").text(function (d) {
                 return d.name;
@@ -502,6 +571,7 @@ function createTree() {
                 .style("fill-opacity", 0)
                 .style("fill", textColor)
                 .style("font-weight", textWeight)
+                .style("font-size", NODE_FONT_SIZE + "px")
                 .on("click", function (d) {
                     if (d.url) {
                         d3.event.stopPropagation();
@@ -539,7 +609,13 @@ function createTree() {
                 })
                 .text(displayName)
                 .style("fill", textColor)
-                .style("font-weight", textWeight);
+                .style("font-weight", textWeight)
+                .style("font-size", NODE_FONT_SIZE + "px");
+
+            node.attr("aria-label", function (d) { return d.name; })
+                .attr("aria-expanded", function (d) {
+                    return d.children || d._children ? !!d.children : null;
+                });
 
             node.select("circle.nodeCircle")
                 .attr("r", nodeRadius)

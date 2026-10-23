@@ -4,10 +4,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { TreeComponent } from './tree/tree.component';
 
-// const routes: Routes = [];
-
-
-const routes:Routes =[
+const routes: Routes = [
   {
     component: HomeComponent,
     path: ''
@@ -19,11 +16,12 @@ const routes:Routes =[
   {
     component: ContactComponent,
     path: 'contact'
-  }
-]
+  },
+  { path: '**', redirectTo: '' }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

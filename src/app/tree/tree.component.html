@@ -2,14 +2,14 @@
 <div class="wrapper">
   <div class="background">
   </div>
-  <p class="italics top">About Me</p>
+  <h1 class="italics top">About Me</h1>
   <p class="subtitle">Explore my experience, projects, and certifications</p>
 
-  <div class="tree-toolbar">
+  <div class="tree-toolbar" role="search">
     <input id="tree-search" type="search" placeholder="Search projects, certifications..." aria-label="Search portfolio">
     <span id="tree-search-status" aria-live="polite"></span>
-    <button id="tree-fit" type="button">Fit</button>
-    <button id="tree-reset" type="button">Reset</button>
+    <button id="tree-fit" type="button" aria-label="Fit the visible tree">Fit</button>
+    <button id="tree-reset" type="button" aria-label="Reset tree and search">Reset</button>
   </div>
 
   <div id="tree-container"></div>
@@ -20,7 +20,7 @@
       [ scroll or double-click to zoom ]
     </p>
     <p class="bottom-right">
-      [ drag to pan &middot; click underlined labels to open links ] </p>
+      [ drag the background to pan &middot; click underlined labels to open links ] </p>
   </div>
 
 </div>

@@ -1,20 +1,26 @@
 
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 
 
 
-declare var createTree: any;
+declare function createTree(): void;
+declare function destroyTree(): void;
 @Component({
+  standalone: false,
   selector: 'app-tree',
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.css']
 })
-export class TreeComponent implements OnInit {
+export class TreeComponent implements AfterViewInit, OnDestroy {
 
   constructor() { }
 
-  ngOnInit(): void {
-    new createTree();
+  ngAfterViewInit(): void {
+    if (typeof createTree === 'function') createTree();
+  }
+
+  ngOnDestroy(): void {
+    if (typeof destroyTree === 'function') destroyTree();
   }
 
 }
