@@ -533,25 +533,8 @@ function createTree() {
         }
 
         function update(source) {
-            // Compute the new height, function counts total children of root node and sets tree height accordingly.
-            // This prevents the layout looking squashed when new nodes are made visible or looking sparse when nodes are removed
-            // This makes the layout more consistent.
-            var levelWidth = [1];
-            var childCount = function (level, n) {
-
-                if (n.children && n.children.length > 0) {
-                    if (levelWidth.length <= level + 1) levelWidth.push(0);
-
-                    levelWidth[level + 1] += n.children.length;
-                    n.children.forEach(function (d) {
-                        childCount(level + 1, d);
-                    });
-                }
-            };
-            childCount(0, root);
-
-            // Give each row enough room for the tallest wrapped label so
-            // multiple lines never overlap their neighbours.
+            // Give every row enough vertical room for the tallest wrapped label
+            // so multiple lines never overlap a neighbouring node.
             var visible = [];
             (function collect(n) {
                 visible.push(n);
@@ -561,8 +544,11 @@ function createTree() {
                 return labelLines(d).length;
             }) || 1;
             var rowHeight = Math.max(28, maxLines * labelLineHeight() + 6);
-            var newHeight = d3.max(levelWidth) * rowHeight;
-            tree = tree.size([newHeight, viewerWidth]);
+
+            // Use fixed node spacing instead of d3's proportional size: the
+            // latter scales rows by leaf count, which can squeeze them below
+            // the height of a two-line label and cause overlaps.
+            tree = tree.nodeSize([rowHeight, LEVEL_SPACING]);
 
             // Compute the new tree layout.
             var nodes = tree.nodes(root).reverse(),
