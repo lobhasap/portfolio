@@ -426,28 +426,22 @@
           "name": "Algorithmic Trading, Finance & Financial Engineering",
           "children": [
             {
-              "name": "Algorithmic Trading and Stocks Essential Training",
-              "url": "https://www.linkedin.com/learning/algorithmic-trading-and-stocks-essential-training-16977513"
+              "name": "Algorithmic Trading and Stocks Essential Training"
             },
             {
-              "name": "Practical Python for Algorithmic Trading",
-              "url": "https://www.linkedin.com/learning/practical-python-for-algorithmic-trading"
+              "name": "Practical Python for Algorithmic Trading"
             },
             {
-              "name": "Financial Modeling Foundations",
-              "url": "https://www.linkedin.com/learning/financial-modeling-foundations-27294075"
+              "name": "Financial Modeling Foundations"
             },
             {
-              "name": "Algorithmic Trading and Finance Models with Python, R, and Stata Essential Training (2019)",
-              "url": "https://www.linkedin.com/learning/algorithmic-trading-and-finance-models-with-python-r-and-stata-essential-training-24504280"
+              "name": "Algorithmic Trading and Finance Models with Python, R, and Stata Essential Training (2019)"
             },
             {
-              "name": "Introduction to Financial Engineering and Risk Management (Columbia University)",
-              "url": "https://www.coursera.org/learn/financial-engineering-intro"
+              "name": "Introduction to Financial Engineering and Risk Management (Columbia University)"
             },
             {
-              "name": "Financial Markets (Yale University)",
-              "url": "https://www.coursera.org/learn/financial-markets-global"
+              "name": "Financial Markets (Yale University)"
             }
           ]
         },
@@ -455,68 +449,52 @@
           "name": "Machine Learning, AI & Data Science",
           "children": [
             {
-              "name": "Machine Learning with Python: k-Means Clustering",
-              "url": "https://www.linkedin.com/learning/machine-learning-with-python-k-means-clustering"
+              "name": "Machine Learning with Python: k-Means Clustering"
             },
             {
-              "name": "Applied Machine Learning: Algorithms",
-              "url": "https://www.linkedin.com/learning/applied-machine-learning-algorithms-23750732"
+              "name": "Applied Machine Learning: Algorithms"
             },
             {
-              "name": "Machine Learning and AI Foundations: Clustering and Association",
-              "url": "https://www.linkedin.com/learning/machine-learning-and-ai-foundations-clustering-and-association"
+              "name": "Machine Learning and AI Foundations: Clustering and Association"
             },
             {
-              "name": "Predictive Analytics Essential Training: Data Mining",
-              "url": "https://www.linkedin.com/learning/predictive-analytics-essential-training-data-mining"
+              "name": "Predictive Analytics Essential Training: Data Mining"
             },
             {
-              "name": "Workshop / Fundamentals of Deep Learning",
-              "url": "https://www.nvidia.com/en-us/training/instructor-led-workshops/fundamentals-of-deep-learning/"
+              "name": "Workshop / Fundamentals of Deep Learning"
             },
             {
-              "name": "AI Agent Developer (Vanderbilt University)",
-              "url": "https://www.coursera.org/specializations/ai-agents"
+              "name": "AI Agent Developer (Vanderbilt University)"
             },
             {
-              "name": "AI Agents and Agentic AI with Python & Generative AI (Vanderbilt University)",
-              "url": "https://www.coursera.org/learn/ai-agents-python"
+              "name": "AI Agents and Agentic AI with Python & Generative AI (Vanderbilt University)"
             },
             {
-              "name": "AI Agents and Agentic AI Architecture in Python (Vanderbilt University)",
-              "url": "https://www.coursera.org/learn/ai-agents-architecture-python"
+              "name": "AI Agents and Agentic AI Architecture in Python (Vanderbilt University)"
             },
             {
-              "name": "Trustworthy Generative AI (Vanderbilt University)",
-              "url": "https://www.coursera.org/learn/trustworthy-generative-ai"
+              "name": "Trustworthy Generative AI (Vanderbilt University)"
             },
             {
-              "name": "ChatGPT Advanced Data Analysis (Vanderbilt University)",
-              "url": "https://www.coursera.org/learn/chatgpt-advanced-data-analysis"
+              "name": "ChatGPT Advanced Data Analysis (Vanderbilt University)"
             },
             {
-              "name": "GPT Vision: Seeing the World through Generative AI (Vanderbilt University)",
-              "url": "https://www.coursera.org/learn/gpt-vision"
+              "name": "GPT Vision: Seeing the World through Generative AI (Vanderbilt University)"
             },
             {
-              "name": "OpenAI GPTs: Creating Your Own Custom AI Assistants (Vanderbilt University)",
-              "url": "https://www.coursera.org/learn/openai-custom-gpts"
+              "name": "OpenAI GPTs: Creating Your Own Custom AI Assistants (Vanderbilt University)"
             },
             {
-              "name": "Prompt Engineering (Vanderbilt University)",
-              "url": "https://www.coursera.org/specializations/prompt-engineering"
+              "name": "Prompt Engineering (Vanderbilt University)"
             },
             {
-              "name": "Prompt Engineering for ChatGPT (Vanderbilt University)",
-              "url": "https://www.coursera.org/learn/prompt-engineering"
+              "name": "Prompt Engineering for ChatGPT (Vanderbilt University)"
             },
             {
-              "name": "Prompt Engineering for Educators (Vanderbilt University)",
-              "url": "https://www.coursera.org/specializations/prompt-engineering-for-educators"
+              "name": "Prompt Engineering for Educators (Vanderbilt University)"
             },
             {
-              "name": "Innovative Teaching with ChatGPT (Vanderbilt University)",
-              "url": "https://www.coursera.org/learn/chatgpt-innovative-teaching"
+              "name": "Innovative Teaching with ChatGPT (Vanderbilt University)"
             }
           ]
         },
@@ -524,16 +502,13 @@
           "name": "Data Engineering, Databases & Warehousing",
           "children": [
             {
-              "name": "Implementing a Data Warehouse with SQL Server 2022",
-              "url": "https://www.linkedin.com/learning/implementing-a-data-warehouse-with-sql-server-2022"
+              "name": "Implementing a Data Warehouse with SQL Server 2022"
             },
             {
-              "name": "Introduction to Data Warehouses",
-              "url": "https://www.linkedin.com/learning/introduction-to-data-warehouses"
+              "name": "Introduction to Data Warehouses"
             },
             {
-              "name": "Transition from Data Science to Data Engineering",
-              "url": "https://www.linkedin.com/learning/transition-from-data-science-to-data-engineering"
+              "name": "Transition from Data Science to Data Engineering"
             }
           ]
         },
@@ -541,80 +516,65 @@
           "name": "Cybersecurity, Network Security & Ethical Hacking",
           "children": [
             {
-              "name": "Metasploit for Beginners: Ethical Penetration Testing (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/metasploit-for-beginners-ethical-penetration-testing"
+              "name": "Metasploit for Beginners: Ethical Penetration Testing (Coursera Project Network)"
             },
             {
-              "name": "Encryption and Decryption using C++ (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/encryption-decryption-cpp"
+              "name": "Encryption and Decryption using C++ (Coursera Project Network)"
             },
             {
-              "name": "Wireshark for Beginners: TCP IP Protocol Fundamentals (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/wireshark-for-beginners-tcp-ip-protocol-fundamentals"
+              "name": "Wireshark for Beginners: TCP IP Protocol Fundamentals (Coursera Project Network)"
             },
             {
-              "name": "Web Application Security Testing with OWASP ZAP (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/web-application-security-testing-with-owsap-zap"
+              "name": "Web Application Security Testing with OWASP ZAP (Coursera Project Network)"
             },
             {
-              "name": "How to Secure your Network Device using Cisco Packet Tracer (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/how-to-secure-your-network-devices"
+              "name": "How to Secure your Network Device using Cisco Packet Tracer (Coursera Project Network)"
             },
             {
-              "name": "Wireshark for Beginners: Capture Packets (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/wireshark-for-beginners-capture-packets"
+              "name": "Wireshark for Beginners: Capture Packets (Coursera Project Network)"
             },
             {
               "name": "Vulnerability Scanning with Nmap: Network Scanning (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/vulnerability-scanning-with-nmap-network-scanning"
+              "url": "https://www.coursera.org/verify/FZXGF48LN8ZP"
             },
             {
-              "name": "IT Fundamentals for Cybersecurity (IBM)",
-              "url": "https://www.coursera.org/specializations/it-fundamentals-cybersecurity"
+              "name": "IT Fundamentals for Cybersecurity (IBM)"
             },
             {
               "name": "Computer Networks and Network Security (IBM)",
-              "url": "https://www.coursera.org/learn/network-security-database-vulnerabilities"
+              "url": "https://www.coursera.org/verify/0OPTR75884GX"
             },
             {
-              "name": "Fundamentals of Computer Network Security (University of Colorado System)",
-              "url": "https://www.coursera.org/specializations/computer-network-security"
+              "name": "Fundamentals of Computer Network Security (University of Colorado System)"
             },
             {
-              "name": "Secure Networked System with Firewall and IDS (University of Colorado System)",
-              "url": "https://www.coursera.org/learn/secure-networked-system-with-firewall-ids"
+              "name": "Secure Networked System with Firewall and IDS (University of Colorado System)"
             },
             {
               "name": "Design and Analyze Secure Networked Systems (University of Colorado System)",
-              "url": "https://www.coursera.org/learn/design-secure-networked-systems"
+              "url": "https://www.coursera.org/verify/LMZIRCJK65FM"
             },
             {
-              "name": "Cybersecurity Compliance Framework, Standards & Regulations (IBM)",
-              "url": "https://www.coursera.org/learn/cybersecurity-compliance-framework-standards-regulations"
+              "name": "Cybersecurity Compliance Framework, Standards & Regulations (IBM)"
             },
             {
               "name": "Basic Cryptography and Programming with Crypto API (University of Colorado System)",
-              "url": "https://www.coursera.org/learn/basic-cryptography-and-crypto-api"
+              "url": "https://www.coursera.org/verify/T9POK5WIPT0Z"
             },
             {
-              "name": "Hacking and Patching (University of Colorado System)",
-              "url": "https://www.coursera.org/learn/hacking-patching"
+              "name": "Hacking and Patching (University of Colorado System)"
             },
             {
-              "name": "Operating Systems: Overview, Administration, and Security (IBM)",
-              "url": "https://www.coursera.org/learn/operating-systems-overview-administration-security"
+              "name": "Operating Systems: Overview, Administration, and Security (IBM)"
             },
             {
-              "name": "Introduction to Cybersecurity Tools & Cyberattacks (IBM)",
-              "url": "https://www.coursera.org/learn/introduction-cybersecurity-cyber-attacks"
+              "name": "Introduction to Cybersecurity Tools & Cyberattacks (IBM)"
             },
             {
-              "name": "Analyze Network Traffic with TCPDump: Build a Logging Tool (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/analyze-network-traffic-tcpdump-build-logging-tool"
+              "name": "Analyze Network Traffic with TCPDump: Build a Logging Tool (Coursera Project Network)"
             },
             {
-              "name": "Wireshark for Security: Detect Network Anomalies (Coursera Project Network)",
-              "url": "https://www.coursera.org/projects/wireshark-for-security"
+              "name": "Wireshark for Security: Detect Network Anomalies (Coursera Project Network)"
             }
           ]
         },
@@ -622,36 +582,28 @@
           "name": "Web Development & UI/UX",
           "children": [
             {
-              "name": "Holistic Web Development: Responsive UIs, Logic, Deployment (Board Infinity)",
-              "url": "https://www.coursera.org/specializations/holisticwebdevelopment-responsiveuis-serverlogic-scalabledeployment"
+              "name": "Holistic Web Development: Responsive UIs, Logic, Deployment (Board Infinity)"
             },
             {
-              "name": "Comprehensive Guide to Server-Side Logic and Development (Board Infinity)",
-              "url": "https://www.coursera.org/learn/comprehensive-guide-server-side-logic-and-development"
+              "name": "Comprehensive Guide to Server-Side Logic and Development (Board Infinity)"
             },
             {
-              "name": "Scalable Deployment and DevOps for Web Development (Board Infinity)",
-              "url": "https://www.coursera.org/learn/scalable-deployment-and-devops-for-web-development"
+              "name": "Scalable Deployment and DevOps for Web Development (Board Infinity)"
             },
             {
-              "name": "Mastering Responsive UI Design for Modern Web Development (Board Infinity)",
-              "url": "https://www.coursera.org/learn/mastering-responsive-ui-design-for-modern-web-development"
+              "name": "Mastering Responsive UI Design for Modern Web Development (Board Infinity)"
             },
             {
-              "name": "Responsive Web Design (Scrimba)",
-              "url": "https://www.coursera.org/specializations/responsive-web-design"
+              "name": "Responsive Web Design (Scrimba)"
             },
             {
-              "name": "Build a Responsive Layout with CSS Grid (Scrimba)",
-              "url": "https://www.coursera.org/learn/build-a-responsive-layout-with-css-grid"
+              "name": "Build a Responsive Layout with CSS Grid (Scrimba)"
             },
             {
-              "name": "Build a Product Splash Page with HTML and CSS (Scrimba)",
-              "url": "https://www.coursera.org/learn/build-a-product-splash-page-with-html-and-css"
+              "name": "Build a Product Splash Page with HTML and CSS (Scrimba)"
             },
             {
-              "name": "Build a Responsive Website with HTML and CSS (Scrimba)",
-              "url": "https://www.coursera.org/learn/build-a-responsive-website-with-html-and-css"
+              "name": "Build a Responsive Website with HTML and CSS (Scrimba)"
             }
           ]
         },
@@ -659,28 +611,22 @@
           "name": "Fitness, Health & Personal Training",
           "children": [
             {
-              "name": "NASM Personal Fitness Trainer (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/professional-certificates/nasm-personal-fitness-trainer"
+              "name": "NASM Personal Fitness Trainer (National Academy of Sports Medicine)"
             },
             {
-              "name": "Getting Started as a Personal Fitness Trainer (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/learn/getting-started-as-a-personal-fitness-trainer"
+              "name": "Getting Started as a Personal Fitness Trainer (National Academy of Sports Medicine)"
             },
             {
-              "name": "Anatomy, Physiology, and Kinesiology for Fitness Professions (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/learn/anatomy-physiology-and-kinesiology-for-fitness"
+              "name": "Anatomy, Physiology, and Kinesiology for Fitness Professions (National Academy of Sports Medicine)"
             },
             {
-              "name": "NASM Personal Fitness Trainer Exam Preparation (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/learn/nasm-personal-training-exam-preparation"
+              "name": "NASM Personal Fitness Trainer Exam Preparation (National Academy of Sports Medicine)"
             },
             {
-              "name": "Understanding Fitness Programming (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/learn/understanding-fitness-programming"
+              "name": "Understanding Fitness Programming (National Academy of Sports Medicine)"
             },
             {
-              "name": "Nutrition and Weight Management for Fitness Professionals (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/learn/nutrition-and-weight-management-for-fitness-professionals"
+              "name": "Nutrition and Weight Management for Fitness Professionals (National Academy of Sports Medicine)"
             }
           ]
         },
@@ -688,20 +634,16 @@
           "name": "Soft Skills & Personal Development",
           "children": [
             {
-              "name": "Time Management Mastery",
-              "url": "https://alison.com/course/time-management-mastery"
+              "name": "Time Management Mastery"
             },
             {
-              "name": "The Science of Well-Being (Yale University)",
-              "url": "https://www.coursera.org/learn/the-science-of-well-being"
+              "name": "The Science of Well-Being (Yale University)"
             },
             {
-              "name": "Football: More than a Game (The University of Edinburgh)",
-              "url": "https://www.coursera.org/learn/football-more-than-a-game"
+              "name": "Football: More than a Game (The University of Edinburgh)"
             },
             {
-              "name": "Introduction to Psychology (Yale University)",
-              "url": "https://www.coursera.org/learn/introduction-psychology"
+              "name": "Introduction to Psychology (Yale University)"
             }
           ]
         },
@@ -709,8 +651,7 @@
           "name": "Programming & Tools",
           "children": [
             {
-              "name": "MATLAB Onramp",
-              "url": "https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted"
+              "name": "MATLAB Onramp"
             }
           ]
         }
