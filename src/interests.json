@@ -11,7 +11,8 @@
           "name": "1st Place - Threat Intelligence Quiz (Apr 2025)"
         },
         {
-          "name": "Published Research Paper - ICSIAIML 2025"
+          "name": "Published Research Paper - ICSIAIML 2025",
+          "url": "https://www.atlantis-press.com/proceedings/icsiaiml-25/126021179"
         },
         {
           "name": "4th Place - Visionary Techfest '24, Vishwakarma University (Feb 2024)"
@@ -219,7 +220,8 @@
               "name": "Multi-Threaded Video & Audio Pipeline"
             },
             {
-              "name": "Published Research Paper"
+              "name": "Published Research Paper",
+              "url": "https://www.atlantis-press.com/proceedings/icsiaiml-25/126021179"
             }
           ]
         },
@@ -351,6 +353,7 @@
       "children": [
         {
           "name": "Emotion-Aware Music Recommendation using Gesture Recognition and Computer Vision",
+          "url": "https://www.atlantis-press.com/proceedings/icsiaiml-25/126021179",
           "children": [
             {
               "name": "ICSIAIML 2025"

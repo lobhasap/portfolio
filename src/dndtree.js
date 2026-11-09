@@ -97,15 +97,66 @@ function createTree() {
         });
         setParents(treeData);
 
-        function displayName(d) {
-            var count = d._children && d._children.length ? " (" + d._children.length + ")" : "";
-            var limit = LABEL_LIMIT - count.length;
-            var name = d.name;
+        // Wrap a label on word boundaries so long names stay readable instead
+        // of being cut off with an ellipsis. Words longer than the limit are
+        // split with a hyphen (e.g. long URLs or email addresses).
+        function wrapLabel(text, limit) {
+            var words = text.split(/\s+/);
+            var lines = [];
+            var current = "";
 
-            if (name.length > limit) {
-                name = name.substring(0, limit - 3) + "...";
-            }
-            return name + count;
+            words.forEach(function (word) {
+                while (word.length > limit) {
+                    if (current) {
+                        lines.push(current);
+                        current = "";
+                    }
+                    lines.push(word.substring(0, limit - 1) + "-");
+                    word = word.substring(limit - 1);
+                }
+                if (!word) return;
+
+                var candidate = current ? current + " " + word : word;
+                if (candidate.length > limit && current) {
+                    lines.push(current);
+                    current = word;
+                } else {
+                    current = candidate;
+                }
+            });
+
+            if (current) lines.push(current);
+            return lines.length ? lines : [text];
+        }
+
+        function labelLines(d) {
+            var lines = wrapLabel(d.name || "", LABEL_LIMIT);
+            var count = d._children && d._children.length ? " (" + d._children.length + ")" : "";
+            // Keep the child count attached to the last line instead of letting
+            // it sit on a line of its own.
+            lines[lines.length - 1] += count;
+            return lines;
+        }
+
+        function labelLineHeight() {
+            return NODE_FONT_SIZE * 1.2;
+        }
+
+        // Render the wrapped label as vertically centred <tspan> lines.
+        function renderLabel(d) {
+            var text = d3.select(this);
+            var lines = labelLines(d);
+            var lineHeightEm = 1.2;
+            var firstDy = -((lines.length - 1) / 2) * lineHeightEm;
+
+            while (this.firstChild) this.removeChild(this.firstChild);
+
+            lines.forEach(function (line, index) {
+                text.append("tspan")
+                    .attr("x", text.attr("x"))
+                    .attr("dy", (index === 0 ? firstDy : lineHeightEm) + "em")
+                    .text(line);
+            });
         }
 
         function textColor(d) {
@@ -156,13 +207,18 @@ function createTree() {
         }
 
         function nodeBounds(d) {
-            var width = Math.min(displayName(d).length, LABEL_LIMIT) * NODE_CHAR_WIDTH + 24;
+            var lines = labelLines(d);
+            var longest = d3.max(lines, function (line) {
+                return line.length;
+            }) || 0;
+            var width = longest * NODE_CHAR_WIDTH + 24;
+            var height = Math.max(lines.length * labelLineHeight(), 22) + 6;
             var hasChildren = d.children || d._children;
             return {
                 minX: d.y - (hasChildren ? width : 20),
                 maxX: d.y + (hasChildren ? 20 : width),
-                minY: d.x - 18,
-                maxY: d.x + 18
+                minY: d.x - height / 2,
+                maxY: d.x + height / 2
             };
         }
 
@@ -493,7 +549,19 @@ function createTree() {
                 }
             };
             childCount(0, root);
-            var newHeight = d3.max(levelWidth) * 28; // 28 pixels per line
+
+            // Give each row enough room for the tallest wrapped label so
+            // multiple lines never overlap their neighbours.
+            var visible = [];
+            (function collect(n) {
+                visible.push(n);
+                (n.children || []).forEach(collect);
+            })(root);
+            var maxLines = d3.max(visible, function (d) {
+                return labelLines(d).length;
+            }) || 1;
+            var rowHeight = Math.max(28, maxLines * labelLineHeight() + 6);
+            var newHeight = d3.max(levelWidth) * rowHeight;
             tree = tree.size([newHeight, viewerWidth]);
 
             // Compute the new tree layout.
@@ -501,8 +569,8 @@ function createTree() {
                 links = tree.links(nodes);
             visibleNodes = nodes;
 
-            // Keep a consistent level spacing. Labels are truncated for display
-            // and the full value is available in the node tooltip.
+            // Keep a consistent level spacing. Long labels wrap onto multiple
+            // lines; the full value is also available in the node tooltip.
             nodes.forEach(function (d) {
                 d.y = d.depth * LEVEL_SPACING;
             });
@@ -567,7 +635,7 @@ function createTree() {
                 .attr("text-anchor", function (d) {
                     return d.children || d._children ? "end" : "start";
                 })
-                .text(displayName)
+                .each(renderLabel)
                 .style("fill-opacity", 0)
                 .style("fill", textColor)
                 .style("font-weight", textWeight)
@@ -607,7 +675,7 @@ function createTree() {
                 .attr("text-anchor", function (d) {
                     return d.children || d._children ? "end" : "start";
                 })
-                .text(displayName)
+                .each(renderLabel)
                 .style("fill", textColor)
                 .style("font-weight", textWeight)
                 .style("font-size", NODE_FONT_SIZE + "px");
