@@ -560,44 +560,102 @@
             },
             {
               "name": "AI Agent Developer (Vanderbilt University)",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/22WWEFC6UINV"
-            },
-            {
-              "name": "AI Agents and Agentic AI with Python & Generative AI (Vanderbilt University)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/XK833QQTO6QM"
-            },
-            {
-              "name": "AI Agents and Agentic AI Architecture in Python (Vanderbilt University)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/B64O482XYP9Y"
-            },
-            {
-              "name": "Trustworthy Generative AI (Vanderbilt University)"
-            },
-            {
-              "name": "ChatGPT Advanced Data Analysis (Vanderbilt University)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/1YTI8AXARWUY"
-            },
-            {
-              "name": "GPT Vision: Seeing the World through Generative AI (Vanderbilt University)"
-            },
-            {
-              "name": "OpenAI GPTs: Creating Your Own Custom AI Assistants (Vanderbilt University)"
+              "url": "https://www.coursera.org/account/accomplishments/specialization/22WWEFC6UINV",
+              "children": [
+                {
+                  "name": "AI Agents and Agentic AI with Python & Generative AI",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/XK833QQTO6QM"
+                },
+                {
+                  "name": "AI Agents and Agentic AI Architecture in Python",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/B64O482XYP9Y"
+                },
+                {
+                  "name": "OpenAI GPTs: Creating Your Own Custom AI Assistants"
+                },
+                {
+                  "name": "Prompt Engineering for ChatGPT",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/IXB9WEEGRYAW"
+                },
+                {
+                  "name": "ChatGPT Advanced Data Analysis",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/1YTI8AXARWUY"
+                },
+                {
+                  "name": "Trustworthy Generative AI"
+                }
+              ]
             },
             {
               "name": "Prompt Engineering (Vanderbilt University)",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/GJ2KZEASQWG0"
-            },
-            {
-              "name": "Prompt Engineering for ChatGPT (Vanderbilt University)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/IXB9WEEGRYAW"
+              "url": "https://www.coursera.org/account/accomplishments/specialization/GJ2KZEASQWG0",
+              "children": [
+                {
+                  "name": "Prompt Engineering for ChatGPT",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/IXB9WEEGRYAW"
+                },
+                {
+                  "name": "ChatGPT Advanced Data Analysis",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/1YTI8AXARWUY"
+                },
+                {
+                  "name": "Trustworthy Generative AI"
+                }
+              ]
             },
             {
               "name": "Prompt Engineering for Educators (Vanderbilt University)",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/GAS8OQPV9A2A"
+              "url": "https://www.coursera.org/account/accomplishments/specialization/GAS8OQPV9A2A",
+              "children": [
+                {
+                  "name": "Prompt Engineering for ChatGPT",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/IXB9WEEGRYAW"
+                },
+                {
+                  "name": "Innovative Teaching with ChatGPT",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/J4UO3V5KJLSX"
+                },
+                {
+                  "name": "GPT Vision: Seeing the World through Generative AI"
+                }
+              ]
             },
             {
-              "name": "Innovative Teaching with ChatGPT (Vanderbilt University)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/J4UO3V5KJLSX"
+              "name": "Responsible Generative AI (University of Michigan)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/0FVHFPO9A7W0",
+              "children": [
+                {
+                  "name": "Generative AI: Fundamentals, Applications, and Challenges",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/VTLCNFAQN1QA"
+                },
+                {
+                  "name": "Generative AI: Impact on Business and Society",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/4WSEVIBYQLQH"
+                },
+                {
+                  "name": "Generative AI: Governance, Policy, and Emerging Regulation",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/MHY1TQJ5VPXT"
+                },
+                {
+                  "name": "Generative AI: Labor and the Future of Work"
+                }
+              ]
+            },
+            {
+              "name": "Prompt Engineering for Law (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/X97SAOXFE7VU",
+              "children": [
+                {
+                  "name": "Prompt Engineering for ChatGPT",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/IXB9WEEGRYAW"
+                },
+                {
+                  "name": "Generative AI for Legal Services Primer"
+                },
+                {
+                  "name": "OpenAI GPTs: Creating Your Own Custom AI Assistants"
+                }
+              ]
             }
           ]
         },
@@ -647,47 +705,7 @@
             },
             {
               "name": "Vulnerability Scanning with Nmap: Network Scanning (Coursera Project Network)",
-              "url": "https://www.coursera.org/account/accomplishments/records/FZXGF48LN8ZP"
-            },
-            {
-              "name": "IT Fundamentals for Cybersecurity (IBM)",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/KGB6JZF6WXTL"
-            },
-            {
-              "name": "Computer Networks and Network Security (IBM)",
-              "url": "https://www.coursera.org/account/accomplishments/records/0OPTR75884GX"
-            },
-            {
-              "name": "Fundamentals of Computer Network Security (University of Colorado System)",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/MUG34EPNEZZT"
-            },
-            {
-              "name": "Secure Networked System with Firewall and IDS (University of Colorado System)",
-              "url": "https://www.coursera.org/account/accomplishments/records/I73J9R5OC65Z"
-            },
-            {
-              "name": "Design and Analyze Secure Networked Systems (University of Colorado System)",
-              "url": "https://www.coursera.org/account/accomplishments/records/LMZIRCJK65FM"
-            },
-            {
-              "name": "Cybersecurity Compliance Framework, Standards & Regulations (IBM)",
-              "url": "https://www.coursera.org/account/accomplishments/records/5M6S32I8USJH"
-            },
-            {
-              "name": "Basic Cryptography and Programming with Crypto API (University of Colorado System)",
-              "url": "https://www.coursera.org/account/accomplishments/records/T9POK5WIPT0Z"
-            },
-            {
-              "name": "Hacking and Patching (University of Colorado System)",
-              "url": "https://www.coursera.org/account/accomplishments/records/2EXJ43GU0J5Z"
-            },
-            {
-              "name": "Operating Systems: Overview, Administration, and Security (IBM)",
-              "url": "https://www.coursera.org/account/accomplishments/records/8NBFF91V9JRM"
-            },
-            {
-              "name": "Introduction to Cybersecurity Tools & Cyberattacks (IBM)",
-              "url": "https://www.coursera.org/account/accomplishments/records/SQPYD3ZNER76"
+              "url": "https://www.coursera.org/account/accomplishments/verify/FZXGF48LN8ZP"
             },
             {
               "name": "Analyze Network Traffic with TCPDump: Build a Logging Tool (Coursera Project Network)",
@@ -696,6 +714,62 @@
             {
               "name": "Wireshark for Security: Detect Network Anomalies (Coursera Project Network)",
               "url": "https://www.coursera.org/account/accomplishments/verify/I5SFADZCMCV0"
+            },
+            {
+              "name": "IT Fundamentals for Cybersecurity (IBM)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/KGB6JZF6WXTL",
+              "children": [
+                {
+                  "name": "Introduction to Cybersecurity Tools & Cyberattacks",
+                  "url": "https://www.coursera.org/account/accomplishments/records/SQPYD3ZNER76"
+                },
+                {
+                  "name": "Operating Systems: Overview, Administration, and Security",
+                  "url": "https://www.coursera.org/account/accomplishments/records/8NBFF91V9JRM"
+                },
+                {
+                  "name": "Cybersecurity Compliance Framework, Standards & Regulations",
+                  "url": "https://www.coursera.org/account/accomplishments/records/5M6S32I8USJH"
+                },
+                {
+                  "name": "Computer Networks and Network Security",
+                  "url": "https://www.coursera.org/account/accomplishments/records/0OPTR75884GX"
+                }
+              ]
+            },
+            {
+              "name": "Fundamentals of Computer Network Security (University of Colorado System)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/MUG34EPNEZZT",
+              "children": [
+                {
+                  "name": "Design and Analyze Secure Networked Systems",
+                  "url": "https://www.coursera.org/account/accomplishments/records/LMZIRCJK65FM"
+                },
+                {
+                  "name": "Basic Cryptography and Programming with Crypto API",
+                  "url": "https://www.coursera.org/account/accomplishments/records/T9POK5WIPT0Z"
+                },
+                {
+                  "name": "Hacking and Patching",
+                  "url": "https://www.coursera.org/account/accomplishments/records/2EXJ43GU0J5Z"
+                },
+                {
+                  "name": "Secure Networked System with Firewall and IDS",
+                  "url": "https://www.coursera.org/account/accomplishments/records/I73J9R5OC65Z"
+                }
+              ]
+            },
+            {
+              "name": "Database Essentials and Vulnerabilities (IBM)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/I4EGO6072UWI"
+            },
+            {
+              "name": "Introduction to Cybersecurity Essentials (IBM)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/235ADEQEVNVI"
+            },
+            {
+              "name": "Introduction to Cybersecurity Careers (IBM)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/KEABKAVL11DI"
             }
           ]
         },
@@ -704,33 +778,37 @@
           "children": [
             {
               "name": "Holistic Web Development: Responsive UIs, Logic, Deployment (Board Infinity)",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/O1MBU0T025SB"
-            },
-            {
-              "name": "Comprehensive Guide to Server-Side Logic and Development (Board Infinity)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/RYX5HOW98I6D"
-            },
-            {
-              "name": "Scalable Deployment and DevOps for Web Development (Board Infinity)"
-            },
-            {
-              "name": "Mastering Responsive UI Design for Modern Web Development (Board Infinity)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/9MXRLSNXFMDV"
+              "url": "https://www.coursera.org/account/accomplishments/specialization/O1MBU0T025SB",
+              "children": [
+                {
+                  "name": "Mastering Responsive UI Design for Modern Web Development",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/9MXRLSNXFMDV"
+                },
+                {
+                  "name": "Comprehensive Guide to Server-Side Logic and Development",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/RYX5HOW98I6D"
+                },
+                {
+                  "name": "Scalable Deployment and DevOps for Web Development"
+                }
+              ]
             },
             {
               "name": "Responsive Web Design (Scrimba)",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/37X4Z6IAR5J1"
-            },
-            {
-              "name": "Build a Responsive Layout with CSS Grid (Scrimba)"
-            },
-            {
-              "name": "Build a Product Splash Page with HTML and CSS (Scrimba)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/P1274XK18Z33"
-            },
-            {
-              "name": "Build a Responsive Website with HTML and CSS (Scrimba)",
-              "url": "https://www.coursera.org/account/accomplishments/verify/1FUP3SVU35HK"
+              "url": "https://www.coursera.org/account/accomplishments/specialization/37X4Z6IAR5J1",
+              "children": [
+                {
+                  "name": "Build a Responsive Website with HTML and CSS",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/1FUP3SVU35HK"
+                },
+                {
+                  "name": "Build a Product Splash Page with HTML and CSS",
+                  "url": "https://www.coursera.org/account/accomplishments/verify/P1274XK18Z33"
+                },
+                {
+                  "name": "Build a Responsive Layout with CSS Grid"
+                }
+              ]
             }
           ]
         },
@@ -739,27 +817,29 @@
           "children": [
             {
               "name": "NASM Personal Fitness Trainer (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/account/accomplishments/specialization/PU58TD0AKF9R"
-            },
-            {
-              "name": "Getting Started as a Personal Fitness Trainer (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/account/accomplishments/records/MGHLDRWKNRI3"
-            },
-            {
-              "name": "Anatomy, Physiology, and Kinesiology for Fitness Professions (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/account/accomplishments/records/YX4N1GJHT5PY"
-            },
-            {
-              "name": "NASM Personal Fitness Trainer Exam Preparation (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/account/accomplishments/records/MDUX36V4EQT3"
-            },
-            {
-              "name": "Understanding Fitness Programming (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/account/accomplishments/records/P9HA1788G88E"
-            },
-            {
-              "name": "Nutrition and Weight Management for Fitness Professionals (National Academy of Sports Medicine)",
-              "url": "https://www.coursera.org/account/accomplishments/records/DHNGO605PKH9"
+              "url": "https://www.coursera.org/account/accomplishments/specialization/PU58TD0AKF9R",
+              "children": [
+                {
+                  "name": "Getting Started as a Personal Fitness Trainer",
+                  "url": "https://www.coursera.org/account/accomplishments/records/MGHLDRWKNRI3"
+                },
+                {
+                  "name": "Anatomy, Physiology, and Kinesiology for Fitness Professions",
+                  "url": "https://www.coursera.org/account/accomplishments/records/YX4N1GJHT5PY"
+                },
+                {
+                  "name": "Understanding Fitness Programming",
+                  "url": "https://www.coursera.org/account/accomplishments/records/P9HA1788G88E"
+                },
+                {
+                  "name": "Nutrition and Weight Management for Fitness Professionals",
+                  "url": "https://www.coursera.org/account/accomplishments/records/DHNGO605PKH9"
+                },
+                {
+                  "name": "NASM Personal Fitness Trainer Exam Preparation",
+                  "url": "https://www.coursera.org/account/accomplishments/records/MDUX36V4EQT3"
+                }
+              ]
             }
           ]
         },
