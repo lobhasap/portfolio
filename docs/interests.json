@@ -227,30 +227,45 @@
           "name": "Payout Engine",
           "url": "https://github.com/lobhasap/Payout-Engine",
           "children": [
-            { "name": "Live Demo", "url": "https://playto-cyan.vercel.app" }
+            {
+              "name": "Live Demo",
+              "url": "https://playto-cyan.vercel.app"
+            }
           ]
         },
         {
           "name": "Weather App",
           "url": "https://github.com/lobhasap/weather",
           "children": [
-            { "name": "Live Demo", "url": "https://weather-flax-omega.vercel.app" }
+            {
+              "name": "Live Demo",
+              "url": "https://weather-flax-omega.vercel.app"
+            }
           ]
         },
         {
           "name": "Expense Voucher Management System",
           "url": "https://github.com/lobhasap/Expense-Voucher-Management-System",
           "children": [
-            { "name": "React, Node.js & PostgreSQL" },
-            { "name": "Expense Voucher Approval Workflow" }
+            {
+              "name": "React, Node.js & PostgreSQL"
+            },
+            {
+              "name": "Expense Voucher Approval Workflow"
+            }
           ]
         },
         {
           "name": "Expense Splitter",
           "url": "https://github.com/lobhasap/Expense-Splitter",
           "children": [
-            { "name": "Web App and Backend" },
-            { "name": "Backend Repository", "url": "https://github.com/lobhasap/Expense-Splitter-backendinti" }
+            {
+              "name": "Web App and Backend"
+            },
+            {
+              "name": "Backend Repository",
+              "url": "https://github.com/lobhasap/Expense-Splitter-backendinti"
+            }
           ]
         },
         {
@@ -350,58 +365,122 @@
         {
           "name": "Programming Languages",
           "children": [
-            { "name": "Python" },
-            { "name": "C" },
-            { "name": "C++" },
-            { "name": "Java" },
-            { "name": "JavaScript" },
-            { "name": "SQL" },
-            { "name": "R" },
-            { "name": "Shell Scripting" }
+            {
+              "name": "Python"
+            },
+            {
+              "name": "C"
+            },
+            {
+              "name": "C++"
+            },
+            {
+              "name": "Java"
+            },
+            {
+              "name": "JavaScript"
+            },
+            {
+              "name": "SQL"
+            },
+            {
+              "name": "R"
+            },
+            {
+              "name": "Shell Scripting"
+            }
           ]
         },
         {
           "name": "Frameworks & Technologies",
           "children": [
-            { "name": "FastAPI" },
-            { "name": "React" },
-            { "name": "Angular" },
-            { "name": "Node.js" },
-            { "name": "SQLAlchemy" },
-            { "name": "JWT" },
-            { "name": "PyQt" },
-            { "name": "OpenCV" },
-            { "name": "MediaPipe" },
-            { "name": "D3.js" }
+            {
+              "name": "FastAPI"
+            },
+            {
+              "name": "React"
+            },
+            {
+              "name": "Angular"
+            },
+            {
+              "name": "Node.js"
+            },
+            {
+              "name": "SQLAlchemy"
+            },
+            {
+              "name": "JWT"
+            },
+            {
+              "name": "PyQt"
+            },
+            {
+              "name": "OpenCV"
+            },
+            {
+              "name": "MediaPipe"
+            },
+            {
+              "name": "D3.js"
+            }
           ]
         },
         {
           "name": "Databases",
           "children": [
-            { "name": "MySQL" },
-            { "name": "PostgreSQL" },
-            { "name": "SQLite" },
-            { "name": "MongoDB" }
+            {
+              "name": "MySQL"
+            },
+            {
+              "name": "PostgreSQL"
+            },
+            {
+              "name": "SQLite"
+            },
+            {
+              "name": "MongoDB"
+            }
           ]
         },
         {
           "name": "Security & Networking",
           "children": [
-            { "name": "Conjur" },
-            { "name": "Wireshark" },
-            { "name": "TCPDump" },
-            { "name": "Metasploit" },
-            { "name": "Nmap" },
-            { "name": "OWASP ZAP" },
-            { "name": "Cisco Packet Tracer" },
-            { "name": "TCP/IP" }
+            {
+              "name": "Conjur"
+            },
+            {
+              "name": "Wireshark"
+            },
+            {
+              "name": "TCPDump"
+            },
+            {
+              "name": "Metasploit"
+            },
+            {
+              "name": "Nmap"
+            },
+            {
+              "name": "OWASP ZAP"
+            },
+            {
+              "name": "Cisco Packet Tracer"
+            },
+            {
+              "name": "TCP/IP"
+            }
           ]
         },
         {
           "name": "Developer Tools",
           "children": [
-            { "name": "Git" },
-            { "name": "Jenkins" }
+            {
+              "name": "Git"
+            },
+            {
+              "name": "Jenkins"
+            }
           ]
         },
         {
@@ -410,9 +489,15 @@
             {
               "name": "Linux",
               "children": [
-                { "name": "System Administration" },
-                { "name": "Process Management" },
-                { "name": "File Systems" }
+                {
+                  "name": "System Administration"
+                },
+                {
+                  "name": "Process Management"
+                },
+                {
+                  "name": "File Systems"
+                }
               ]
             }
           ]
@@ -426,22 +511,27 @@
           "name": "Algorithmic Trading, Finance & Financial Engineering",
           "children": [
             {
-              "name": "Algorithmic Trading and Stocks Essential Training"
+              "name": "Algorithmic Trading and Stocks Essential Training",
+              "url": "https://www.linkedin.com/learning/certificates/42ca1b9fefb96652e273c359f5db83ac675a22e773217b11f86777dde1460dcb"
             },
             {
-              "name": "Practical Python for Algorithmic Trading"
+              "name": "Practical Python for Algorithmic Trading",
+              "url": "https://www.linkedin.com/learning/certificates/91e698c19fcd6fb140864028af663afb8fd2cb8bf9c8a275af38480a402d16e1"
             },
             {
-              "name": "Financial Modeling Foundations"
+              "name": "Financial Modeling Foundations",
+              "url": "https://www.linkedin.com/learning/certificates/7035403a1f725aac9d17c80b4e689a0229e8b1e4a40f43c8b67e7ee4c3c0472e"
             },
             {
               "name": "Algorithmic Trading and Finance Models with Python, R, and Stata Essential Training (2019)"
             },
             {
-              "name": "Introduction to Financial Engineering and Risk Management (Columbia University)"
+              "name": "Introduction to Financial Engineering and Risk Management (Columbia University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/Y6G1RSKMMV48"
             },
             {
-              "name": "Financial Markets (Yale University)"
+              "name": "Financial Markets (Yale University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/XIETZRT44UHZ"
             }
           ]
         },
@@ -449,34 +539,43 @@
           "name": "Machine Learning, AI & Data Science",
           "children": [
             {
-              "name": "Machine Learning with Python: k-Means Clustering"
+              "name": "Machine Learning with Python: k-Means Clustering",
+              "url": "https://www.linkedin.com/learning/certificates/7ecdd3c922b9acefe08594f35386369848899fca43f2e06cc55667f804f4dcf7"
             },
             {
-              "name": "Applied Machine Learning: Algorithms"
+              "name": "Applied Machine Learning: Algorithms",
+              "url": "https://www.linkedin.com/learning/certificates/3d0a15c48b180f88738c03dbc7aa5eaa4da81e0b4e521f1dd0e9d9ff54e99217"
             },
             {
-              "name": "Machine Learning and AI Foundations: Clustering and Association"
+              "name": "Machine Learning and AI Foundations: Clustering and Association",
+              "url": "https://www.linkedin.com/learning/certificates/4e2e8d33502867074f42ab45cef7537e3d0cfef30b10a46179ca415e25f54ba5"
             },
             {
-              "name": "Predictive Analytics Essential Training: Data Mining"
+              "name": "Predictive Analytics Essential Training: Data Mining",
+              "url": "https://www.linkedin.com/learning/certificates/aa5befbf7932cdc244583a8b13c0acce7328d04a4c1a70b8ea34bb30f2d8277f"
             },
             {
-              "name": "Workshop / Fundamentals of Deep Learning"
+              "name": "Workshop / Fundamentals of Deep Learning",
+              "url": "https://learn.nvidia.com/certificates?id=s1uUx-MQSq-4O5KWhb9tFQ"
             },
             {
-              "name": "AI Agent Developer (Vanderbilt University)"
+              "name": "AI Agent Developer (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/22WWEFC6UINV"
             },
             {
-              "name": "AI Agents and Agentic AI with Python & Generative AI (Vanderbilt University)"
+              "name": "AI Agents and Agentic AI with Python & Generative AI (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/XK833QQTO6QM"
             },
             {
-              "name": "AI Agents and Agentic AI Architecture in Python (Vanderbilt University)"
+              "name": "AI Agents and Agentic AI Architecture in Python (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/B64O482XYP9Y"
             },
             {
               "name": "Trustworthy Generative AI (Vanderbilt University)"
             },
             {
-              "name": "ChatGPT Advanced Data Analysis (Vanderbilt University)"
+              "name": "ChatGPT Advanced Data Analysis (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/1YTI8AXARWUY"
             },
             {
               "name": "GPT Vision: Seeing the World through Generative AI (Vanderbilt University)"
@@ -485,16 +584,20 @@
               "name": "OpenAI GPTs: Creating Your Own Custom AI Assistants (Vanderbilt University)"
             },
             {
-              "name": "Prompt Engineering (Vanderbilt University)"
+              "name": "Prompt Engineering (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/GJ2KZEASQWG0"
             },
             {
-              "name": "Prompt Engineering for ChatGPT (Vanderbilt University)"
+              "name": "Prompt Engineering for ChatGPT (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/IXB9WEEGRYAW"
             },
             {
-              "name": "Prompt Engineering for Educators (Vanderbilt University)"
+              "name": "Prompt Engineering for Educators (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/GAS8OQPV9A2A"
             },
             {
-              "name": "Innovative Teaching with ChatGPT (Vanderbilt University)"
+              "name": "Innovative Teaching with ChatGPT (Vanderbilt University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/J4UO3V5KJLSX"
             }
           ]
         },
@@ -502,13 +605,16 @@
           "name": "Data Engineering, Databases & Warehousing",
           "children": [
             {
-              "name": "Implementing a Data Warehouse with SQL Server 2022"
+              "name": "Implementing a Data Warehouse with SQL Server 2022",
+              "url": "https://www.linkedin.com/learning/certificates/d4a12c7690da6302071fd868e7ced9fe62fe8d23ae1eec5531de5478165bcbbd"
             },
             {
-              "name": "Introduction to Data Warehouses"
+              "name": "Introduction to Data Warehouses",
+              "url": "https://www.linkedin.com/learning/certificates/99d899627368d86b99ad1220f804ecefb6b4834fee27ce76f73df8b1d778f425"
             },
             {
-              "name": "Transition from Data Science to Data Engineering"
+              "name": "Transition from Data Science to Data Engineering",
+              "url": "https://www.linkedin.com/learning/certificates/40549460d52609add8d3288e73b10f8a49b0e5c5bf3c53dcfdad441d909b10ee"
             }
           ]
         },
@@ -516,65 +622,80 @@
           "name": "Cybersecurity, Network Security & Ethical Hacking",
           "children": [
             {
-              "name": "Metasploit for Beginners: Ethical Penetration Testing (Coursera Project Network)"
+              "name": "Metasploit for Beginners: Ethical Penetration Testing (Coursera Project Network)",
+              "url": "https://www.coursera.org/account/accomplishments/records/XN7A5XGQXVY4"
             },
             {
-              "name": "Encryption and Decryption using C++ (Coursera Project Network)"
+              "name": "Encryption and Decryption using C++ (Coursera Project Network)",
+              "url": "https://www.coursera.org/account/accomplishments/records/1GYP5RAWVAUF"
             },
             {
-              "name": "Wireshark for Beginners: TCP IP Protocol Fundamentals (Coursera Project Network)"
+              "name": "Wireshark for Beginners: TCP IP Protocol Fundamentals (Coursera Project Network)",
+              "url": "https://www.coursera.org/account/accomplishments/records/TNA9A0SQ7RMM"
             },
             {
-              "name": "Web Application Security Testing with OWASP ZAP (Coursera Project Network)"
+              "name": "Web Application Security Testing with OWASP ZAP (Coursera Project Network)",
+              "url": "https://www.coursera.org/account/accomplishments/records/HY9T3HKK81T0"
             },
             {
-              "name": "How to Secure your Network Device using Cisco Packet Tracer (Coursera Project Network)"
+              "name": "How to Secure your Network Device using Cisco Packet Tracer (Coursera Project Network)",
+              "url": "https://www.coursera.org/account/accomplishments/records/7BDZTIU5IPKU"
             },
             {
-              "name": "Wireshark for Beginners: Capture Packets (Coursera Project Network)"
+              "name": "Wireshark for Beginners: Capture Packets (Coursera Project Network)",
+              "url": "https://www.coursera.org/account/accomplishments/records/770R937QAV2A"
             },
             {
               "name": "Vulnerability Scanning with Nmap: Network Scanning (Coursera Project Network)",
-              "url": "https://www.coursera.org/verify/FZXGF48LN8ZP"
+              "url": "https://www.coursera.org/account/accomplishments/records/FZXGF48LN8ZP"
             },
             {
-              "name": "IT Fundamentals for Cybersecurity (IBM)"
+              "name": "IT Fundamentals for Cybersecurity (IBM)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/KGB6JZF6WXTL"
             },
             {
               "name": "Computer Networks and Network Security (IBM)",
-              "url": "https://www.coursera.org/verify/0OPTR75884GX"
+              "url": "https://www.coursera.org/account/accomplishments/records/0OPTR75884GX"
             },
             {
-              "name": "Fundamentals of Computer Network Security (University of Colorado System)"
+              "name": "Fundamentals of Computer Network Security (University of Colorado System)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/MUG34EPNEZZT"
             },
             {
-              "name": "Secure Networked System with Firewall and IDS (University of Colorado System)"
+              "name": "Secure Networked System with Firewall and IDS (University of Colorado System)",
+              "url": "https://www.coursera.org/account/accomplishments/records/I73J9R5OC65Z"
             },
             {
               "name": "Design and Analyze Secure Networked Systems (University of Colorado System)",
-              "url": "https://www.coursera.org/verify/LMZIRCJK65FM"
+              "url": "https://www.coursera.org/account/accomplishments/records/LMZIRCJK65FM"
             },
             {
-              "name": "Cybersecurity Compliance Framework, Standards & Regulations (IBM)"
+              "name": "Cybersecurity Compliance Framework, Standards & Regulations (IBM)",
+              "url": "https://www.coursera.org/account/accomplishments/records/5M6S32I8USJH"
             },
             {
               "name": "Basic Cryptography and Programming with Crypto API (University of Colorado System)",
-              "url": "https://www.coursera.org/verify/T9POK5WIPT0Z"
+              "url": "https://www.coursera.org/account/accomplishments/records/T9POK5WIPT0Z"
             },
             {
-              "name": "Hacking and Patching (University of Colorado System)"
+              "name": "Hacking and Patching (University of Colorado System)",
+              "url": "https://www.coursera.org/account/accomplishments/records/2EXJ43GU0J5Z"
             },
             {
-              "name": "Operating Systems: Overview, Administration, and Security (IBM)"
+              "name": "Operating Systems: Overview, Administration, and Security (IBM)",
+              "url": "https://www.coursera.org/account/accomplishments/records/8NBFF91V9JRM"
             },
             {
-              "name": "Introduction to Cybersecurity Tools & Cyberattacks (IBM)"
+              "name": "Introduction to Cybersecurity Tools & Cyberattacks (IBM)",
+              "url": "https://www.coursera.org/account/accomplishments/records/SQPYD3ZNER76"
             },
             {
-              "name": "Analyze Network Traffic with TCPDump: Build a Logging Tool (Coursera Project Network)"
+              "name": "Analyze Network Traffic with TCPDump: Build a Logging Tool (Coursera Project Network)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/FLYAVEI1DL6Z"
             },
             {
-              "name": "Wireshark for Security: Detect Network Anomalies (Coursera Project Network)"
+              "name": "Wireshark for Security: Detect Network Anomalies (Coursera Project Network)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/I5SFADZCMCV0"
             }
           ]
         },
@@ -582,28 +703,34 @@
           "name": "Web Development & UI/UX",
           "children": [
             {
-              "name": "Holistic Web Development: Responsive UIs, Logic, Deployment (Board Infinity)"
+              "name": "Holistic Web Development: Responsive UIs, Logic, Deployment (Board Infinity)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/O1MBU0T025SB"
             },
             {
-              "name": "Comprehensive Guide to Server-Side Logic and Development (Board Infinity)"
+              "name": "Comprehensive Guide to Server-Side Logic and Development (Board Infinity)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/RYX5HOW98I6D"
             },
             {
               "name": "Scalable Deployment and DevOps for Web Development (Board Infinity)"
             },
             {
-              "name": "Mastering Responsive UI Design for Modern Web Development (Board Infinity)"
+              "name": "Mastering Responsive UI Design for Modern Web Development (Board Infinity)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/9MXRLSNXFMDV"
             },
             {
-              "name": "Responsive Web Design (Scrimba)"
+              "name": "Responsive Web Design (Scrimba)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/37X4Z6IAR5J1"
             },
             {
               "name": "Build a Responsive Layout with CSS Grid (Scrimba)"
             },
             {
-              "name": "Build a Product Splash Page with HTML and CSS (Scrimba)"
+              "name": "Build a Product Splash Page with HTML and CSS (Scrimba)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/P1274XK18Z33"
             },
             {
-              "name": "Build a Responsive Website with HTML and CSS (Scrimba)"
+              "name": "Build a Responsive Website with HTML and CSS (Scrimba)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/1FUP3SVU35HK"
             }
           ]
         },
@@ -611,22 +738,28 @@
           "name": "Fitness, Health & Personal Training",
           "children": [
             {
-              "name": "NASM Personal Fitness Trainer (National Academy of Sports Medicine)"
+              "name": "NASM Personal Fitness Trainer (National Academy of Sports Medicine)",
+              "url": "https://www.coursera.org/account/accomplishments/specialization/PU58TD0AKF9R"
             },
             {
-              "name": "Getting Started as a Personal Fitness Trainer (National Academy of Sports Medicine)"
+              "name": "Getting Started as a Personal Fitness Trainer (National Academy of Sports Medicine)",
+              "url": "https://www.coursera.org/account/accomplishments/records/MGHLDRWKNRI3"
             },
             {
-              "name": "Anatomy, Physiology, and Kinesiology for Fitness Professions (National Academy of Sports Medicine)"
+              "name": "Anatomy, Physiology, and Kinesiology for Fitness Professions (National Academy of Sports Medicine)",
+              "url": "https://www.coursera.org/account/accomplishments/records/YX4N1GJHT5PY"
             },
             {
-              "name": "NASM Personal Fitness Trainer Exam Preparation (National Academy of Sports Medicine)"
+              "name": "NASM Personal Fitness Trainer Exam Preparation (National Academy of Sports Medicine)",
+              "url": "https://www.coursera.org/account/accomplishments/records/MDUX36V4EQT3"
             },
             {
-              "name": "Understanding Fitness Programming (National Academy of Sports Medicine)"
+              "name": "Understanding Fitness Programming (National Academy of Sports Medicine)",
+              "url": "https://www.coursera.org/account/accomplishments/records/P9HA1788G88E"
             },
             {
-              "name": "Nutrition and Weight Management for Fitness Professionals (National Academy of Sports Medicine)"
+              "name": "Nutrition and Weight Management for Fitness Professionals (National Academy of Sports Medicine)",
+              "url": "https://www.coursera.org/account/accomplishments/records/DHNGO605PKH9"
             }
           ]
         },
@@ -637,13 +770,16 @@
               "name": "Time Management Mastery"
             },
             {
-              "name": "The Science of Well-Being (Yale University)"
+              "name": "The Science of Well-Being (Yale University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/I65X1S5HV36P"
             },
             {
-              "name": "Football: More than a Game (The University of Edinburgh)"
+              "name": "Football: More than a Game (The University of Edinburgh)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/HLB6YVQSC1WV"
             },
             {
-              "name": "Introduction to Psychology (Yale University)"
+              "name": "Introduction to Psychology (Yale University)",
+              "url": "https://www.coursera.org/account/accomplishments/verify/S4KWZ8W4BDYF"
             }
           ]
         },
