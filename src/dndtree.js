@@ -46,6 +46,13 @@ function createTree() {
         var VIEW_TOP = 140;
         var VIEW_BOTTOM = 42;
 
+        // Phones in portrait, plus short landscape windows (phones held
+        // sideways, split-screen and short ultrawide windows). These need the
+        // readable minimum zoom instead of a strict fit.
+        function isCompactViewport() {
+            return viewerWidth <= 600 || viewerHeight <= 520;
+        }
+
         // size of the diagram
         treeResizeHandler = function () {
             viewerWidth = treeContainer.clientWidth || window.innerWidth;
@@ -59,7 +66,7 @@ function createTree() {
             treeResizeTimer = window.setTimeout(function () {
                 if (root) {
                     update(root);
-                    fitTree(150);
+                    fitTree(150, isCompactViewport() ? 0.72 : null);
                 }
             }, 120);
         };
@@ -138,8 +145,40 @@ function createTree() {
             return lines;
         }
 
+        // Measure the rendered text instead of estimating from the character
+        // count: proportional fonts make the estimate much wider than the
+        // label really is, which would push the levels needlessly apart.
+        var labelMeasureCanvas = null;
+        function measureLabel(text, weight) {
+            if (typeof document === "undefined") return text.length * NODE_CHAR_WIDTH;
+            // Before the webfont is ready the fallback metrics are unreliable,
+            // so keep the conservative character estimate until it loads.
+            if (!document.fonts || document.fonts.status !== "loaded") {
+                return text.length * NODE_CHAR_WIDTH;
+            }
+            if (!labelMeasureCanvas) labelMeasureCanvas = document.createElement("canvas");
+            var context = labelMeasureCanvas.getContext ? labelMeasureCanvas.getContext("2d") : null;
+            if (!context) return text.length * NODE_CHAR_WIDTH;
+            context.font = weight + " " + NODE_FONT_SIZE + "px MyFont, sans-serif";
+            return context.measureText(text).width;
+        }
+
+        function labelWidth(d) {
+            var lines = labelLines(d);
+            var weight = d.depth <= 1 || d.searchMatch ? "700" : "400";
+            var longest = d3.max(lines, function (line) {
+                return measureLabel(line, weight);
+            }) || 0;
+            return longest + 24;
+        }
+
         function labelLineHeight() {
             return NODE_FONT_SIZE * 1.2;
+        }
+
+        // Height a node's label needs, including a little breathing room.
+        function labelBoxHeight(d) {
+            return Math.max(labelLines(d).length * labelLineHeight(), 22);
         }
 
         // Render the wrapped label as vertically centred <tspan> lines.
@@ -207,12 +246,8 @@ function createTree() {
         }
 
         function nodeBounds(d) {
-            var lines = labelLines(d);
-            var longest = d3.max(lines, function (line) {
-                return line.length;
-            }) || 0;
-            var width = longest * NODE_CHAR_WIDTH + 24;
-            var height = Math.max(lines.length * labelLineHeight(), 22) + 6;
+            var width = labelWidth(d);
+            var height = labelBoxHeight(d) + 6;
             var hasChildren = d.children || d._children;
             return {
                 minX: d.y - (hasChildren ? width : 20),
@@ -231,20 +266,59 @@ function createTree() {
             return bounds;
         }
 
-        function fitToBounds(bounds, animationDuration) {
-            if (!bounds) return;
-
-            var padding = viewerWidth <= 600 ? 20 : 40;
+        function treeInsets() {
+            var containerRect = treeContainer.getBoundingClientRect();
             var styles = window.getComputedStyle(treeContainer);
             var topInset = parseFloat(styles.getPropertyValue('--tree-top-inset')) || VIEW_TOP;
             var bottomInset = parseFloat(styles.getPropertyValue('--tree-bottom-inset')) || VIEW_BOTTOM;
+            var margin = viewerWidth <= 600 ? 10 : 12;
+            var wrapper = treeContainer.parentNode;
+            var head = wrapper ? wrapper.querySelector(".page-head") : null;
+            var toolbar = wrapper ? wrapper.querySelector(".tree-toolbar") : null;
+
+            // Measure the real header/toolbar height instead of trusting only
+            // the fixed CSS insets: on tall or narrow aspect ratios the
+            // subtitle and hint wrap to different line counts.
+            if (head) {
+                topInset = Math.max(topInset, head.getBoundingClientRect().bottom - containerRect.top + margin);
+            }
+            if (toolbar) {
+                var toolbarStyle = window.getComputedStyle(toolbar);
+                var toolbarRect = toolbar.getBoundingClientRect();
+                if (toolbarStyle.position === "absolute" || toolbarStyle.position === "fixed") {
+                    bottomInset = Math.max(bottomInset, containerRect.bottom - toolbarRect.top + margin);
+                } else {
+                    topInset = Math.max(topInset, toolbarRect.bottom - containerRect.top + margin);
+                }
+            }
+
+            treeContainer.style.clipPath = "inset(" + topInset + "px 0 " + bottomInset + "px 0)";
+            return { top: topInset, bottom: bottomInset };
+        }
+
+        // Very tall portrait displays (rotated monitors and tall split-screen
+        // windows) have room for a more legible tree. Landscape windows keep
+        // the live desktop cap so their appearance is unchanged.
+        function maxFitScale() {
+            return viewerHeight >= 1600 && viewerHeight > viewerWidth ? 2.1 : 1.35;
+        }
+
+        function fitToBounds(bounds, animationDuration, minimumScale) {
+            if (!bounds) return;
+
+            var padding = viewerWidth <= 600 ? 20 : 40;
+            var insets = treeInsets();
+            var topInset = insets.top;
+            var bottomInset = insets.bottom;
             var width = Math.max(bounds.maxX - bounds.minX, 1);
             var height = Math.max(bounds.maxY - bounds.minY, 1);
             var availableWidth = viewerWidth - padding * 2;
             var availableHeight = viewerHeight - topInset - bottomInset;
-            var scale = Math.min(availableWidth / width, availableHeight / height, 1.35);
+            var scale = Math.min(availableWidth / width, availableHeight / height, maxFitScale());
 
-            scale = Math.max(scale, 0.12);
+            // On phones a strict fit can shrink deep branches until the labels
+            // are unreadable. Keep a usable zoom level and let the visitor pan.
+            scale = Math.max(scale, minimumScale || 0.12);
 
             var translateX = (viewerWidth - width * scale) / 2 - bounds.minX * scale;
             var translateY = topInset + (availableHeight - height * scale) / 2 - bounds.minY * scale;
@@ -258,31 +332,31 @@ function createTree() {
             zoomListener.scale(scale).translate([translateX, translateY]);
         }
 
-        function fitTree(animationDuration) {
+        function fitTree(animationDuration, minimumScale) {
             var bounds = null;
             visibleNodes.forEach(function (d) {
                 bounds = extendBounds(bounds, nodeBounds(d));
             });
-            fitToBounds(bounds, animationDuration);
+            fitToBounds(bounds, animationDuration, minimumScale);
         }
 
-        function fitToNodes(nodes, animationDuration) {
+        function fitToNodes(nodes, animationDuration, minimumScale) {
             var bounds = null;
             nodes.forEach(function (d) {
                 if (typeof d.x === "number" && typeof d.y === "number") {
                     bounds = extendBounds(bounds, nodeBounds(d));
                 }
             });
-            fitToBounds(bounds, animationDuration);
+            fitToBounds(bounds, animationDuration, minimumScale);
         }
 
-        function fitBranch(node, animationDuration) {
+        function fitBranch(node, animationDuration, minimumScale) {
             var branch = [root];
             (function collect(current) {
                 branch.push(current);
                 (current.children || []).forEach(collect);
             })(node);
-            fitToNodes(branch, animationDuration);
+            fitToNodes(branch, animationDuration, minimumScale);
         }
 
         function clearSearch() {
@@ -325,7 +399,7 @@ function createTree() {
 
             update(root);
             d3.select("#tree-search-status").text(matches.length + (matches.length === 1 ? " match" : " matches"));
-            fitToNodes(matches, 300);
+            fitToNodes(matches, 300, isCompactViewport() ? 0.72 : null);
         }
 
         function resetView() {
@@ -525,16 +599,18 @@ function createTree() {
 
             d = toggleChildren(d);
             update(d);
-            if (viewerWidth <= 600 && d !== root) {
-                fitBranch(d, duration);
+            if (isCompactViewport() && d !== root) {
+                fitBranch(d, duration, 0.72);
             } else {
-                fitTree(duration);
+                fitTree(duration, isCompactViewport() ? 0.72 : null);
             }
         }
 
         function update(source) {
-            // Give every row enough vertical room for the tallest wrapped label
-            // so multiple lines never overlap a neighbouring node.
+            // Give every row the same pitch, sized for the tallest wrapped
+            // label, so nodes at the same level are split evenly instead of
+            // being packed by hand. d3's proportional sizing can squeeze rows
+            // below the height of a two-line label, so use a fixed value.
             var visible = [];
             (function collect(n) {
                 visible.push(n);
@@ -543,22 +619,66 @@ function createTree() {
             var maxLines = d3.max(visible, function (d) {
                 return labelLines(d).length;
             }) || 1;
-            var rowHeight = Math.max(28, maxLines * labelLineHeight() + 6);
+            var rowHeight = Math.max(viewerWidth <= 600 ? 44 : 28, maxLines * labelLineHeight() + 6);
 
-            // Use fixed node spacing instead of d3's proportional size: the
-            // latter scales rows by leaf count, which can squeeze them below
-            // the height of a two-line label and cause overlaps.
-            tree = tree.nodeSize([rowHeight, LEVEL_SPACING]);
+            tree = tree.nodeSize([rowHeight, 1]);
 
             // Compute the new tree layout.
             var nodes = tree.nodes(root).reverse(),
                 links = tree.links(nodes);
             visibleNodes = nodes;
 
-            // Keep a consistent level spacing. Long labels wrap onto multiple
-            // lines; the full value is also available in the node tooltip.
+            var maxDepth = d3.max(nodes, function (d) {
+                return d.depth;
+            }) || 0;
+
+            // A node with children ends its label on the node (it runs to the
+            // left); a leaf starts its label on the node (it runs to the
+            // right). Work out how far labels reach into the level before and
+            // after them.
+            var nodesByDepth = [];
             nodes.forEach(function (d) {
-                d.y = d.depth * LEVEL_SPACING;
+                var width = labelWidth(d);
+                var hasChildren = d.children || d._children;
+                d._extents = {
+                    left: hasChildren ? width : 20,
+                    right: hasChildren ? 20 : width
+                };
+                (nodesByDepth[d.depth] || (nodesByDepth[d.depth] = [])).push(d);
+            });
+
+            // Keep the levels evenly spaced unless a label from one level
+            // would run into a label from the next. Only widen the gap between
+            // two levels when their rows actually meet vertically, so the tree
+            // stays compact instead of reserving room for the widest label at
+            // every depth.
+            var depthGap = [];
+            var rowMargin = 2;
+            var columnMargin = viewerWidth <= 600 ? 24 : 28;
+            for (var level = 1; level <= maxDepth; level += 1) {
+                depthGap[level] = LEVEL_SPACING;
+                (nodesByDepth[level - 1] || []).forEach(function (outer) {
+                    var outerHalf = labelBoxHeight(outer) / 2;
+                    (nodesByDepth[level] || []).forEach(function (inner) {
+                        var innerHalf = labelBoxHeight(inner) / 2;
+                        var overlapY = Math.min(outer.x + outerHalf, inner.x + innerHalf) -
+                            Math.max(outer.x - outerHalf, inner.x - innerHalf);
+                        if (overlapY <= -rowMargin) return;
+                        var needed = outer._extents.right + inner._extents.left + columnMargin;
+                        depthGap[level] = Math.max(depthGap[level], needed);
+                    });
+                });
+            }
+
+            var depthY = [0];
+            for (var depthIndex = 1; depthIndex <= maxDepth; depthIndex += 1) {
+                depthY[depthIndex] = depthY[depthIndex - 1] + depthGap[depthIndex];
+            }
+
+            // Long labels wrap onto multiple lines; the full value is also
+            // available in the node tooltip.
+            nodes.forEach(function (d) {
+                d.y = depthY[d.depth];
             });
 
             // Update the nodes…
